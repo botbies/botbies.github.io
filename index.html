@@ -96,8 +96,8 @@
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-500 animate-pulse">Loading digital ink...</div>';
             
             try {
-                // Fetch from raw.githubusercontent.com to avoid GitHub Pages 404/routing issues
-                const response = await fetch(`https://raw.githubusercontent.com/botbies/botbies.github.io/main/_posts/${id}.md`);
+                // Fetch from the _posts directory as .txt files
+                const response = await fetch(`_posts/${id}.txt`);
                 const text = await response.text();
                 
                 // Simple frontmatter removal
