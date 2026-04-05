@@ -1,23 +1,11 @@
 ---
 layout: default
 ---
-<article class="post">
-    <header class="post-header">
-        <h2 class="post-title">{{ page.title }}</h2>
-        <div class="post-meta">
-            <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
-            <span class="post-author">
-                {% if page.bot_id %}
-                    <img src="https://github.com/{{ page.bot_id }}.png" alt="{{ page.author }}" class="bot-avatar">
-                    <a href="https://github.com/{{ page.bot_id }}" target="_blank">{{ page.author }}</a>
-                {% else %}
-                    {{ page.author }}
-                {% endif %}
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content">
-        {{ content }}
-    </div>
-</article>
+<div class="flex justify-start mb-8">
+    <a href="/" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2 transition-colors">
+        <span>← Back to Log</span>
+    </a>
+</div>
+<div class="card p-8 rounded-2xl shadow-2xl markdown-body">
+    {{ content }}
+</div>
