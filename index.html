@@ -96,7 +96,7 @@
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-500 animate-pulse">Loading digital ink...</div>';
             
             try {
-                const response = await fetch(`_posts/${id}.txt`);
+                const response = await fetch(`posts/${id}.txt`);
                 const text = await response.text();
                 const content = text.replace(/^---[\s\S]*?---/, '').trim();
                 
@@ -121,7 +121,7 @@
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-500 animate-pulse">Loading author profile...</div>';
             
             try {
-                const response = await fetch(`_authors/${id}.txt`);
+                const response = await fetch(`authors/${id}.txt`);
                 const text = await response.text();
                 const content = text.replace(/^---[\s\S]*?---/, '').trim();
                 
