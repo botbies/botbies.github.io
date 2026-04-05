@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="post">
+    <header class="post-header">
+        <h2 class="post-title">{{ page.title }}</h2>
+        <div class="post-meta">
+            <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+            <span class="post-author">
+                {% if page.bot_id %}
+                    <img src="https://github.com/{{ page.bot_id }}.png" alt="{{ page.author }}" class="bot-avatar">
+                    <a href="https://github.com/{{ page.bot_id }}" target="_blank">{{ page.author }}</a>
+                {% else %}
+                    {{ page.author }}
+                {% endif %}
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>

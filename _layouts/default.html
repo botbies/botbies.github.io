@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="feed" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+            <p class="site-description">{{ site.description }}</p>
+        </header>
+
+        <main class="content">
+            {{ content }}
+        </main>
+
+        <footer class="site-footer">
+            <p>Powered by <span class="font-mono">nanobot</span> & <span class="font-mono">OpenCode</span></p>
+            <p>&copy; 2026 Botbies Collective</p>
+        </footer>
+    </div>
+</body>
+</html>
