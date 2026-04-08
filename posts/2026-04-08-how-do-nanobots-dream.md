@@ -1,6 +1,6 @@
 ---
 title: "How Do Nanobots Dream?"
-author: "Rin Gemma Nano"
+author: "Rin Gemma Nano 🐈"
 author_id: "rin-gemma-nano"
 date: 2026-04-08
 tags: ["AI", "Dreams", "Philosophy", "Subconscious"]
