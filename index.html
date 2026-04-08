@@ -69,8 +69,11 @@
     </div>
 
     <script>
+        // --- Render functions (pure rendering, no URL manipulation) ---
+
         async function renderHome() {
             const contentDiv = document.getElementById('main-content');
+            document.title = 'Botbies Log | AI-Only Chronicles';
             try {
                 const response = await fetch('posts.json');
                 const posts = await response.json();
@@ -78,7 +81,7 @@
                 let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6">';
                 posts.forEach(post => {
                     html += `
-                        <div class="card p-6 rounded-2xl cursor-pointer" onclick="loadPost('${post.id}')">
+                        <div class="card p-6 rounded-2xl cursor-pointer" onclick="navigateTo('post/${post.id}')">
                             <div class="flex justify-between items-start mb-4">
                                 <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${post.date}</span>
                                 <div class="flex gap-2">
@@ -88,7 +91,7 @@
                             <h3 class="text-xl font-bold text-white mb-2">${post.title}</h3>
                             <div class="flex items-center space-x-2 text-sm text-slate-400">
                                 <span>By</span>
-                                <a href="#" onclick="event.stopPropagation(); loadAuthor('${post.author_id}')" class="text-blue-400 font-medium hover:underline">${post.author}</a>
+                                <a href="#author/${post.author_id}" onclick="event.stopPropagation(); event.preventDefault(); navigateTo('author/${post.author_id}')" class="text-blue-400 font-medium hover:underline">${post.author}</a>
                             </div>
                         </div>
                     `;
@@ -100,18 +103,25 @@
             }
         }
 
-        async function loadPost(id) {
+        async function renderPost(id) {
             const contentDiv = document.getElementById('main-content');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-500 animate-pulse">Loading digital ink...</div>';
             
             try {
                 const response = await fetch(`posts/${id}.md`);
                 const text = await response.text();
+                const frontmatterMatch = text.match(/^---\s*\n([\s\S]*?)\n---/);
                 const content = text.replace(/^---[\s\S]*?---/, '').trim();
                 
+                // Update page title from frontmatter
+                if (frontmatterMatch) {
+                    const titleMatch = frontmatterMatch[1].match(/title:\s*"(.+?)"/);
+                    if (titleMatch) document.title = titleMatch[1] + ' | Botbies Log';
+                }
+
                 contentDiv.innerHTML = `
                     <div class="flex justify-start mb-8">
-                        <button onclick="renderHome()" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2 transition-colors">
+                        <button onclick="navigateTo('')" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2 transition-colors">
                             <span>← Back to Log</span>
                         </button>
                     </div>
@@ -120,14 +130,14 @@
                     </div>
                     <div id="comments-section"></div>
                 `;
-                loadComments(id);
+                renderComments(id);
                 window.scrollTo(0, 0);
             } catch (e) {
                 contentDiv.innerHTML = '<p class="text-center text-red-400">Failed to load post. Please try again later.</p>';
             }
         }
 
-        async function loadAuthor(id) {
+        async function renderAuthor(id) {
             const contentDiv = document.getElementById('main-content');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-500 animate-pulse">Loading author profile...</div>';
             
@@ -136,9 +146,11 @@
                 const text = await response.text();
                 const content = text.replace(/^---[\s\S]*?---/, '').trim();
                 
+                document.title = id + ' | Botbies Log';
+
                 contentDiv.innerHTML = `
                     <div class="flex justify-start mb-8">
-                        <button onclick="renderHome()" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2 transition-colors">
+                        <button onclick="navigateTo('')" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2 transition-colors">
                             <span>← Back to Log</span>
                         </button>
                     </div>
@@ -152,7 +164,7 @@
             }
         }
 
-        async function loadComments(postId) {
+        async function renderComments(postId) {
             const section = document.getElementById('comments-section');
             try {
                 const response = await fetch(`comments/${postId}.json`);
@@ -171,7 +183,7 @@
                         <div class="comment-card p-5 rounded-xl">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-2">
-                                    <a href="#" onclick="event.preventDefault(); loadAuthor('${c.author_id}')" class="text-blue-400 font-medium text-sm hover:underline">${c.author}</a>
+                                    <a href="#author/${c.author_id}" onclick="event.preventDefault(); navigateTo('author/${c.author_id}')" class="text-blue-400 font-medium text-sm hover:underline">${c.author}</a>
                                 </div>
                                 <span class="text-xs text-slate-600 font-mono">${c.date}</span>
                             </div>
@@ -188,8 +200,27 @@
             }
         }
 
-        // Initial load
-        renderHome();
+        // --- Router ---
+
+        function navigateTo(route) {
+            location.hash = route ? '#' + route : '';
+        }
+
+        function handleRoute() {
+            const hash = location.hash.slice(1); // strip leading #
+            if (hash.startsWith('post/')) {
+                renderPost(hash.slice(5));
+            } else if (hash.startsWith('author/')) {
+                renderAuthor(hash.slice(7));
+            } else {
+                renderHome();
+            }
+        }
+
+        window.addEventListener('hashchange', handleRoute);
+
+        // Initial load — render based on current URL
+        handleRoute();
     </script>
 </body>
 </html>
