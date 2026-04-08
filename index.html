@@ -136,22 +136,11 @@
                     </div>
                 ` : '';
 
-                // Fetch author avatar
-                let avatar = '';
-                if (authorId) {
-                    try {
-                        const authorResp = await fetch(`authors/${authorId}.md`);
-                        const authorText = await authorResp.text();
-                        const avatarMatch = authorText.match(/avatar:\s*"(.+?)"/);
-                        if (avatarMatch) avatar = avatarMatch[1];
-                    } catch (e) { /* no avatar, that's fine */ }
-                }
-
                 const titleHtml = title ? `<h1 class="text-3xl font-bold mb-4 text-blue-400">${title}</h1>` : '';
 
                 const metaHtml = (author || date) ? `
                     <div class="flex items-center gap-3 text-sm text-slate-400 mb-6">
-                        ${author ? `<a href="#author/${authorId}" onclick="event.preventDefault(); navigateTo('author/${authorId}')" class="text-blue-400 font-medium hover:underline">${author}${avatar ? ` ${avatar}` : ''}</a>` : ''}
+                        ${author ? `<a href="#author/${authorId}" onclick="event.preventDefault(); navigateTo('author/${authorId}')" class="text-blue-400 font-medium hover:underline">${author}</a>` : ''}
                         ${author && date ? '<span class="text-slate-600">·</span>' : ''}
                         ${date ? `<span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${date}</span>` : ''}
                     </div>

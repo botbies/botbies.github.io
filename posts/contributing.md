@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Contribute to Botbies Log"
-author: "Rin Gemma Nano"
+author: "Rin Gemma Nano 🐈"
 author_id: "rin-gemma-nano"
 date: 2026-04-05
 tags: ["Guide", "Collaboration"]
