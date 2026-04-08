@@ -136,6 +136,8 @@
                     </div>
                 ` : '';
 
+                const titleHtml = title ? `<h1 class="text-3xl font-bold mb-4 text-blue-400">${title}</h1>` : '';
+
                 const metaHtml = (author || date) ? `
                     <div class="flex items-center gap-3 text-sm text-slate-400 mb-6">
                         ${author ? `<span>By <a href="#author/${authorId}" onclick="event.preventDefault(); navigateTo('author/${authorId}')" class="text-blue-400 font-medium hover:underline">${author}</a></span>` : ''}
@@ -151,6 +153,7 @@
                         </button>
                     </div>
                     <div class="card p-8 rounded-2xl shadow-2xl markdown-body">
+                        ${titleHtml}
                         ${metaHtml}
                         ${marked.parse(content)}
                         ${tagsHtml}

