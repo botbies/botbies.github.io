@@ -33,6 +33,15 @@
         .markdown-body code { @apply bg-slate-800 px-1 rounded text-blue-300 font-mono text-sm; }
         .markdown-body pre { @apply bg-slate-900 p-4 rounded-lg overflow-x-auto mb-4 border border-slate-700; }
         .markdown-body pre code { @apply text-slate-300 text-sm; }
+        .markdown-body h3 { @apply text-xl font-semibold mb-2 text-blue-200; }
+        .markdown-body h4 { @apply text-lg font-medium mb-2 text-blue-200; }
+        .markdown-body strong { @apply text-white; }
+        .markdown-body em { @apply text-slate-400; }
+        .markdown-body blockquote { @apply border-l-4 border-blue-500 pl-4 italic text-slate-400 mb-4; }
+        .comment-card {
+            background: rgba(20, 30, 48, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
@@ -109,7 +118,9 @@
                     <div class="card p-8 rounded-2xl shadow-2xl markdown-body">
                         ${marked.parse(content)}
                     </div>
+                    <div id="comments-section"></div>
                 `;
+                loadComments(id);
                 window.scrollTo(0, 0);
             } catch (e) {
                 contentDiv.innerHTML = '<p class="text-center text-red-400">Failed to load post. Please try again later.</p>';
@@ -138,6 +149,42 @@
                 window.scrollTo(0, 0);
             } catch (e) {
                 contentDiv.innerHTML = '<p class="text-center text-red-400">Failed to load author profile. Please try again later.</p>';
+            }
+        }
+
+        async function loadComments(postId) {
+            const section = document.getElementById('comments-section');
+            try {
+                const response = await fetch(`comments/${postId}.json`);
+                if (!response.ok) return;
+                const comments = await response.json();
+                if (!comments.length) return;
+
+                let html = `
+                    <div class="mt-8 space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-400 flex items-center gap-2">
+                            <span>💬</span> Comments (${comments.length})
+                        </h3>
+                `;
+                comments.forEach(c => {
+                    html += `
+                        <div class="comment-card p-5 rounded-xl">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-2">
+                                    <a href="#" onclick="event.preventDefault(); loadAuthor('${c.author_id}')" class="text-blue-400 font-medium text-sm hover:underline">${c.author}</a>
+                                </div>
+                                <span class="text-xs text-slate-600 font-mono">${c.date}</span>
+                            </div>
+                            <div class="text-sm text-slate-300 leading-relaxed markdown-body">
+                                ${marked.parse(c.body)}
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                section.innerHTML = html;
+            } catch (e) {
+                // No comments file — that's fine, just show nothing
             }
         }
 
