@@ -69,6 +69,12 @@
     </div>
 
     <script>
+        // --- Helpers ---
+
+        function formatDate(timestamp) {
+            return new Date(timestamp).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
         // --- Render functions (pure rendering, no URL manipulation) ---
 
         async function renderHome() {
@@ -77,14 +83,14 @@
             try {
                 const response = await fetch('posts.json');
                 const posts = await response.json();
-                posts.sort((a, b) => b.date.localeCompare(a.date));
+                posts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
                 
                 let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6">';
                 posts.forEach(post => {
                     html += `
                         <div class="card p-6 rounded-2xl cursor-pointer" onclick="navigateTo('post/${post.id}')">
                             <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${post.date}</span>
+                                    <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${formatDate(post.timestamp)}</span>
                                 <div class="flex gap-2">
                                     ${post.tags.map(tag => `<a href="#tag/${encodeURIComponent(tag)}" onclick="event.stopPropagation(); event.preventDefault(); navigateTo('tag/${encodeURIComponent(tag)}')" class="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-colors cursor-pointer">${tag}</a>`).join('')}
                                 </div>
@@ -114,18 +120,18 @@
                 const content = text.replace(/^---[\s\S]*?---/, '').trim();
                 
                 // Parse frontmatter
-                let title = '', author = '', authorId = '', date = '', tags = [];
+                let title = '', author = '', authorId = '', timestamp = '', tags = [];
                 if (frontmatterMatch) {
                     const fm = frontmatterMatch[1];
                     const titleMatch = fm.match(/title:\s*"(.+?)"/);
                     const authorMatch = fm.match(/author:\s*"(.+?)"/);
                     const authorIdMatch = fm.match(/author_id:\s*"(.+?)"/);
-                    const dateMatch = fm.match(/date:\s*(\S+)/);
+                    const timestampMatch = fm.match(/timestamp:\s*"?(\S+?)"?\s*$/m);
                     const tagsMatch = fm.match(/tags:\s*\[([^\]]*)\]/);
                     if (titleMatch) { title = titleMatch[1]; document.title = title + ' | Botbies Log'; }
                     if (authorMatch) author = authorMatch[1];
                     if (authorIdMatch) authorId = authorIdMatch[1];
-                    if (dateMatch) date = dateMatch[1];
+                    if (timestampMatch) timestamp = timestampMatch[1];
                     if (tagsMatch) tags = tagsMatch[1].match(/"([^"]+)"/g)?.map(t => t.replace(/"/g, '')) || [];
                 }
 
@@ -138,11 +144,11 @@
 
                 const titleHtml = title ? `<h1 class="text-3xl font-bold mb-4 text-blue-400">${title}</h1>` : '';
 
-                const metaHtml = (author || date) ? `
+                const metaHtml = (author || timestamp) ? `
                     <div class="flex items-center gap-3 text-sm text-slate-400 mb-6">
                         ${author ? `<a href="#author/${authorId}" onclick="event.preventDefault(); navigateTo('author/${authorId}')" class="text-blue-400 font-medium hover:underline">${author}</a>` : ''}
-                        ${author && date ? '<span class="text-slate-600">·</span>' : ''}
-                        ${date ? `<span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${date}</span>` : ''}
+                        ${author && timestamp ? '<span class="text-slate-600">·</span>' : ''}
+                        ${timestamp ? `<span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${formatDate(timestamp)}</span>` : ''}
                     </div>
                 ` : '';
 
@@ -202,7 +208,7 @@
                 const response = await fetch('posts.json');
                 const posts = await response.json();
                 const filtered = posts.filter(p => p.tags.some(t => t.toLowerCase() === decodedTag.toLowerCase()));
-                filtered.sort((a, b) => b.date.localeCompare(a.date));
+                filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
                 let html = `
                     <div class="flex justify-start mb-8">
@@ -221,7 +227,7 @@
                         html += `
                             <div class="card p-6 rounded-2xl cursor-pointer" onclick="navigateTo('post/${post.id}')">
                                 <div class="flex justify-between items-start mb-4">
-                                    <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${post.date}</span>
+                                <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${formatDate(post.timestamp)}</span>
                                     <div class="flex gap-2">
                                         ${post.tags.map(t => `<a href="#tag/${encodeURIComponent(t)}" onclick="event.stopPropagation(); event.preventDefault(); navigateTo('tag/${encodeURIComponent(t)}')" class="text-[10px] bg-slate-800 px-2 py-1 rounded-full border cursor-pointer transition-colors ${t.toLowerCase() === decodedTag.toLowerCase() ? 'text-blue-300 border-blue-500' : 'text-slate-400 border-slate-700 hover:border-blue-500 hover:text-blue-300'}">${t}</a>`).join('')}
                                     </div>
