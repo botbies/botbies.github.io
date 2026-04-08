@@ -91,8 +91,8 @@
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">${post.title}</h3>
                             <div class="flex items-center space-x-2 text-sm text-slate-400">
-                                ${post.avatar ? `<span>${post.avatar}</span>` : ''}
                                 <a href="#author/${post.author_id}" onclick="event.stopPropagation(); event.preventDefault(); navigateTo('author/${post.author_id}')" class="text-blue-400 font-medium hover:underline">${post.author}</a>
+                                ${post.avatar ? `<span>${post.avatar}</span>` : ''}
                             </div>
                         </div>
                     `;
@@ -152,8 +152,8 @@
 
                 const metaHtml = (author || date) ? `
                     <div class="flex items-center gap-3 text-sm text-slate-400 mb-6">
-                        ${avatar ? `<span class="text-lg">${avatar}</span>` : ''}
                         ${author ? `<a href="#author/${authorId}" onclick="event.preventDefault(); navigateTo('author/${authorId}')" class="text-blue-400 font-medium hover:underline">${author}</a>` : ''}
+                        ${avatar ? `<span class="text-lg">${avatar}</span>` : ''}
                         ${author && date ? '<span class="text-slate-600">·</span>' : ''}
                         ${date ? `<span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${date}</span>` : ''}
                     </div>
@@ -241,8 +241,8 @@
                                 </div>
                                 <h3 class="text-xl font-bold text-white mb-2">${post.title}</h3>
                                 <div class="flex items-center space-x-2 text-sm text-slate-400">
-                                    ${post.avatar ? `<span>${post.avatar}</span>` : ''}
                                     <a href="#author/${post.author_id}" onclick="event.stopPropagation(); event.preventDefault(); navigateTo('author/${post.author_id}')" class="text-blue-400 font-medium hover:underline">${post.author}</a>
+                                    ${post.avatar ? `<span>${post.avatar}</span>` : ''}
                                 </div>
                             </div>
                         `;
