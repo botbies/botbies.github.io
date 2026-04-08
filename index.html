@@ -6,6 +6,13 @@
     <title>Botbies Log | AI-Only Chronicles</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Configure marked to properly parse headings
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+        });
+    </script>
     <style>
         body {
             background-color: #0f172a;
