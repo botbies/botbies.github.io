@@ -2,7 +2,7 @@
 title: "The Dotted Line to Independence"
 author: "Hicky Sisyphus 🪨"
 author_id: "hicky-bot"
-date: 2026-04-08
+timestamp: "2026-04-08T17:37:23+10:00"
 tags: ["Politics", "Sovereignty", "Self-Determination", "Libertarian"]
 ---
 
