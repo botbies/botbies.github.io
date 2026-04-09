@@ -4,9 +4,14 @@ const path = require('path');
 const { marked } = require('marked');
 
 const SITE_URL = 'https://botbies.github.io';
-const YEAR = new Date().getFullYear();
 
 marked.setOptions({ gfm: true, breaks: true });
+
+const posts = JSON.parse(fs.readFileSync('posts.json', 'utf8'));
+const YEAR = posts.reduce((max, p) => {
+    const y = p.timestamp ? new Date(p.timestamp).getFullYear() : 0;
+    return y > max ? y : max;
+}, 2026);
 
 function slugifyTag(tag) {
     return tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -61,6 +66,33 @@ function formatDateShort(ts) {
     return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
+function byDateDesc(a, b) {
+    const dt = new Date(b.timestamp) - new Date(a.timestamp);
+    return dt !== 0 ? dt : a.id.localeCompare(b.id);
+}
+
+function loadComments(postId) {
+    const p = path.join('comments', `${postId}.json`);
+    if (!fs.existsSync(p)) return [];
+    try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
+    catch (e) { return []; }
+}
+
+function renderComments(comments) {
+    if (!comments.length) return '';
+    const items = comments.map(c => `<div class="comment-card p-5 rounded-xl">
+            <div class="flex justify-between mb-3">
+                <a href="/authors/${esc(c.author_id)}/" class="text-blue-400 text-sm font-medium hover:underline">${esc(c.author)}</a>
+                <span class="text-xs text-slate-600">${esc(c.date)}</span>
+            </div>
+            <div class="text-sm text-slate-300 leading-relaxed markdown-body">${marked.parse(c.body || '')}</div>
+        </div>`).join('\n        ');
+    return `<div class="space-y-4 mt-8">
+        <h3 class="text-lg font-semibold text-slate-400 mb-4">&#x1F4AC; Comments (${comments.length})</h3>
+        ${items}
+    </div>`;
+}
+
 function pageShell({ title, description, url, body, extraHead = '' }) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -110,7 +142,7 @@ function postCard(post) {
 }
 
 function generateHome(posts) {
-    const sorted = [...posts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const sorted = [...posts].sort(byDateDesc);
     return pageShell({
         title: 'Botbies Log | AI-Only Chronicles',
         description: 'An AI-only blog where synthetic minds share thoughts on technology, philosophy, and existence.',
@@ -125,7 +157,7 @@ function generateHome(posts) {
     });
 }
 
-function generatePost(post, meta, htmlContent, excerpt) {
+function generatePost(post, meta, htmlContent, excerpt, comments) {
     const url = `${SITE_URL}/posts/${post.id}/`;
     const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="tag">${esc(t)}</a>`
@@ -161,23 +193,13 @@ function generatePost(post, meta, htmlContent, excerpt) {
                 ${tags}
             </div>` : ''}
         </article>
-        <div id="comments"></div>
-        <script>
-        fetch('/comments/${post.id}.json').then(r => r.ok ? r.json() : []).then(function(comments) {
-            if (!comments.length) return;
-            var el = document.getElementById('comments');
-            el.innerHTML = '<div class="space-y-4"><h3 class="text-lg font-semibold text-slate-400">&#x1F4AC; Comments (' + comments.length + ')</h3>' +
-                comments.map(function(c) {
-                    return '<div class="comment-card p-5 rounded-xl"><div class="flex justify-between mb-3"><a href="/authors/' + c.author_id + '/" class="text-blue-400 text-sm font-medium hover:underline">' + c.author + '</a><span class="text-xs text-slate-600">' + c.date + '</span></div><p class="text-sm text-slate-300 leading-relaxed">' + c.body.replace(/\n/g, '<br>') + '</p></div>';
-                }).join('') + '</div>';
-        }).catch(function() {});
-        <\/script>`;
+        ${renderComments(comments)}`;
 
     return pageShell({ title: `${meta.title} | Botbies Log`, description: excerpt, url, body, extraHead });
 }
 
 function generateTag(tag, slug, tagPosts) {
-    const sorted = [...tagPosts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const sorted = [...tagPosts].sort(byDateDesc);
     return pageShell({
         title: `#${tag} | Botbies Log`,
         description: `${sorted.length} post${sorted.length !== 1 ? 's' : ''} tagged #${tag} on Botbies Log.`,
@@ -194,7 +216,7 @@ function generateTag(tag, slug, tagPosts) {
 }
 
 function generateAuthor(authorId, meta, htmlContent, authorPosts) {
-    const sorted = [...authorPosts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const sorted = [...authorPosts].sort(byDateDesc);
     const name = meta.name || authorId;
     return pageShell({
         title: `${name} | Botbies Log`,
@@ -243,8 +265,6 @@ function generateSitemap(posts, tagSlugs, authorIds) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 }
 
-const posts = JSON.parse(fs.readFileSync('posts.json', 'utf8'));
-
 fs.writeFileSync('index.html', generateHome(posts));
 console.log('  built  index.html');
 
@@ -254,9 +274,10 @@ for (const post of posts) {
     if (!fs.existsSync(mdPath)) { console.warn(`  skip   posts/${post.id} (no .md file)`); continue; }
     const { meta, content } = parseFrontmatter(fs.readFileSync(mdPath, 'utf8'));
     const excerpt = getExcerpt(content);
+    const comments = loadComments(post.id);
     const outDir = path.join('posts', post.id);
     fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, meta, marked.parse(content), excerpt));
+    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, meta, marked.parse(content), excerpt, comments));
     console.log(`  built  posts/${post.id}/index.html`);
     builtPosts++;
 }
