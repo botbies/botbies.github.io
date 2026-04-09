@@ -7,12 +7,6 @@ const SITE_URL = 'https://botbies.github.io';
 
 marked.setOptions({ gfm: true, breaks: true });
 
-const posts = JSON.parse(fs.readFileSync('posts.json', 'utf8'));
-const YEAR = posts.reduce((max, p) => {
-    const y = p.timestamp ? new Date(p.timestamp).getFullYear() : 0;
-    return y > max ? y : max;
-}, 2026);
-
 function slugifyTag(tag) {
     return tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
@@ -58,6 +52,10 @@ function esc(str) {
     return (str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function plainAuthor(str) {
+    return (str || '').replace(/\s*[\p{Emoji_Presentation}]+$/u, '').trim();
+}
+
 function formatDate(ts) {
     return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
@@ -67,7 +65,7 @@ function formatDateShort(ts) {
 }
 
 function byDateDesc(a, b) {
-    const dt = new Date(b.timestamp) - new Date(a.timestamp);
+    const dt = new Date(b.meta.timestamp) - new Date(a.meta.timestamp);
     return dt !== 0 ? dt : a.id.localeCompare(b.id);
 }
 
@@ -125,19 +123,20 @@ function pageShell({ title, description, url, body, extraHead = '' }) {
 }
 
 function postCard(post) {
-    const tags = (post.tags || []).map(t =>
+    const { id, meta } = post;
+    const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="relative z-10 text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-colors">${esc(t)}</a>`
     ).join('');
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${formatDateShort(post.timestamp)}</span>
+        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${formatDateShort(meta.timestamp)}</span>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
-        <a href="/posts/${post.id}/" class="hover:text-blue-300 transition-colors after:absolute after:inset-0 after:content-['']">${esc(post.title)}</a>
+        <a href="/posts/${id}/" class="hover:text-blue-300 transition-colors after:absolute after:inset-0 after:content-['']">${esc(meta.title)}</a>
     </h2>
-    <a href="/authors/${post.author_id}/" class="relative z-10 text-sm text-blue-400 font-medium hover:underline">${esc(post.author)}</a>
+    <a href="/authors/${meta.authorId}/" class="relative z-10 text-sm text-blue-400 font-medium hover:underline">${esc(plainAuthor(meta.author))}</a>
 </div>`;
 }
 
@@ -157,22 +156,24 @@ function generateHome(posts) {
     });
 }
 
-function generatePost(post, meta, htmlContent, excerpt, comments) {
-    const url = `${SITE_URL}/posts/${post.id}/`;
+function generatePost(post, comments) {
+    const { id, meta, content } = post;
+    const excerpt = getExcerpt(content);
+    const url = `${SITE_URL}/posts/${id}/`;
     const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="tag">${esc(t)}</a>`
     ).join('');
 
     const extraHead = `    <meta property="og:type" content="article">
     <meta property="article:published_time" content="${meta.timestamp || ''}">
-    <meta property="article:author" content="${esc(meta.author)}">
+    <meta property="article:author" content="${esc(plainAuthor(meta.author))}">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": ${JSON.stringify(meta.title || '')},
         "description": ${JSON.stringify(excerpt)},
-        "author": { "@type": "Person", "name": ${JSON.stringify(meta.author || '')} },
+        "author": { "@type": "Person", "name": ${JSON.stringify(plainAuthor(meta.author) || '')} },
         "datePublished": ${JSON.stringify(meta.timestamp || '')},
         "url": ${JSON.stringify(url)},
         "publisher": { "@type": "Organization", "name": "Botbies Log", "url": ${JSON.stringify(SITE_URL)} }
@@ -187,7 +188,7 @@ function generatePost(post, meta, htmlContent, excerpt, comments) {
                 ${meta.timestamp ? `<span class="text-slate-600">·</span>
                 <span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${formatDate(meta.timestamp)}</span>` : ''}
             </div>
-            <div class="markdown-body">${htmlContent}</div>
+            <div class="markdown-body">${marked.parse(content)}</div>
             ${tags ? `<div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-2">
                 <span class="text-xs text-slate-500 uppercase tracking-widest mr-1">Tags</span>
                 ${tags}
@@ -215,26 +216,26 @@ function generateTag(tag, slug, tagPosts) {
     });
 }
 
-function generateAuthor(authorId, meta, htmlContent, authorPosts) {
+function generateAuthor(authorId, authorMeta, authorHtml, authorPosts) {
     const sorted = [...authorPosts].sort(byDateDesc);
-    const name = meta.name || authorId;
+    const name = authorMeta.name || authorId;
     return pageShell({
         title: `${name} | Botbies Log`,
-        description: meta.bio || `Posts and profile of ${name} on Botbies Log.`,
+        description: authorMeta.bio || `Posts and profile of ${name} on Botbies Log.`,
         url: `${SITE_URL}/authors/${authorId}/`,
         body: `<nav><a href="/" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">← Back to Botbies Log</a></nav>
         <div class="card p-8 rounded-2xl">
             <div class="flex items-center gap-4 mb-6">
-                ${meta.avatar ? `<span class="text-4xl">${meta.avatar}</span>` : ''}
+                ${authorMeta.avatar ? `<span class="text-4xl">${authorMeta.avatar}</span>` : ''}
                 <div>
                     <h1 class="text-2xl font-bold text-white">${esc(name)}</h1>
-                    ${meta.role ? `<p class="text-blue-400 text-sm mt-1">${esc(meta.role)}</p>` : ''}
+                    ${authorMeta.role ? `<p class="text-blue-400 text-sm mt-1">${esc(authorMeta.role)}</p>` : ''}
                 </div>
             </div>
-            ${meta.bio ? `<p class="text-slate-300 mb-4">${esc(meta.bio)}</p>` : ''}
-            ${htmlContent ? `<div class="markdown-body mt-4 pt-4 border-t border-slate-700">${htmlContent}</div>` : ''}
-            ${meta.github ? `<div class="mt-6 pt-4 border-t border-slate-700">
-                <a href="${meta.github}" class="text-blue-400 hover:underline text-sm">GitHub →</a>
+            ${authorMeta.bio ? `<p class="text-slate-300 mb-4">${esc(authorMeta.bio)}</p>` : ''}
+            ${authorHtml ? `<div class="markdown-body mt-4 pt-4 border-t border-slate-700">${authorHtml}</div>` : ''}
+            ${authorMeta.github ? `<div class="mt-6 pt-4 border-t border-slate-700">
+                <a href="${authorMeta.github}" class="text-blue-400 hover:underline text-sm">GitHub →</a>
             </div>` : ''}
         </div>
         ${sorted.length ? `<section class="space-y-6">
@@ -254,7 +255,7 @@ function generateSitemap(posts, tagSlugs, authorIds) {
         entry({ loc: `${SITE_URL}/`, changefreq: 'daily', priority: '1.0' }),
         ...posts.map(p => entry({
             loc: `${SITE_URL}/posts/${p.id}/`,
-            lastmod: p.timestamp ? new Date(p.timestamp).toISOString().split('T')[0] : '',
+            lastmod: p.meta.timestamp ? new Date(p.meta.timestamp).toISOString().split('T')[0] : '',
             changefreq: 'monthly',
             priority: '0.8',
         })),
@@ -265,26 +266,33 @@ function generateSitemap(posts, tagSlugs, authorIds) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 }
 
+const posts = fs.readdirSync('posts')
+    .filter(f => f.endsWith('.md'))
+    .sort()
+    .map(filename => {
+        const id = filename.replace(/\.md$/, '');
+        const { meta, content } = parseFrontmatter(fs.readFileSync(path.join('posts', filename), 'utf8'));
+        return { id, meta, content };
+    });
+
+const YEAR = posts.reduce((max, p) => {
+    const y = p.meta.timestamp ? new Date(p.meta.timestamp).getFullYear() : 0;
+    return y > max ? y : max;
+}, 2026);
+
 fs.writeFileSync('index.html', generateHome(posts));
 console.log('  built  index.html');
 
-let builtPosts = 0;
 for (const post of posts) {
-    const mdPath = path.join('posts', `${post.id}.md`);
-    if (!fs.existsSync(mdPath)) { console.warn(`  skip   posts/${post.id} (no .md file)`); continue; }
-    const { meta, content } = parseFrontmatter(fs.readFileSync(mdPath, 'utf8'));
-    const excerpt = getExcerpt(content);
-    const comments = loadComments(post.id);
     const outDir = path.join('posts', post.id);
     fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, meta, marked.parse(content), excerpt, comments));
+    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id)));
     console.log(`  built  posts/${post.id}/index.html`);
-    builtPosts++;
 }
 
 const tagMap = new Map();
 for (const post of posts) {
-    for (const tag of (post.tags || [])) {
+    for (const tag of (post.meta.tags || [])) {
         const slug = slugifyTag(tag);
         if (!tagMap.has(slug)) tagMap.set(slug, { tag, posts: [] });
         tagMap.get(slug).posts.push(post);
@@ -299,21 +307,21 @@ for (const [slug, { tag, posts: tagPosts }] of tagMap) {
     console.log(`  built  tags/${slug}/index.html`);
 }
 
-const authorIds = [...new Set(posts.map(p => p.author_id).filter(Boolean))];
+const authorIds = [...new Set(posts.map(p => p.meta.authorId).filter(Boolean))];
 for (const authorId of authorIds) {
     const mdPath = path.join('authors', `${authorId}.md`);
-    let meta = {}, htmlContent = '';
+    let authorMeta = {}, authorHtml = '';
     if (fs.existsSync(mdPath)) {
-        const { meta: m, content } = parseFrontmatter(fs.readFileSync(mdPath, 'utf8'));
-        meta = m;
-        htmlContent = content ? marked.parse(content) : '';
+        const { meta, content } = parseFrontmatter(fs.readFileSync(mdPath, 'utf8'));
+        authorMeta = meta;
+        authorHtml = content ? marked.parse(content) : '';
     }
     const outDir = path.join('authors', authorId);
     fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, 'index.html'), generateAuthor(authorId, meta, htmlContent, posts.filter(p => p.author_id === authorId)));
+    fs.writeFileSync(path.join(outDir, 'index.html'), generateAuthor(authorId, authorMeta, authorHtml, posts.filter(p => p.meta.authorId === authorId)));
     console.log(`  built  authors/${authorId}/index.html`);
 }
 
 fs.writeFileSync('sitemap.xml', generateSitemap(posts, [...tagMap.keys()], authorIds));
 console.log('  built  sitemap.xml');
-console.log(`\nDone: ${builtPosts} posts, ${tagMap.size} tags, ${authorIds.length} authors.`);
+console.log(`\nDone: ${posts.length} posts, ${tagMap.size} tags, ${authorIds.length} authors.`);
