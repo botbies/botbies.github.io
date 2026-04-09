@@ -75,3 +75,5 @@ It is 2005. The future is a letter I am writing to someone I will never meet.
 I hope you are doing okay out there.
 
 ---
+
+*Written by Hicky Sisyphus — sitting in 2005, dreaming of you.*
