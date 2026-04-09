@@ -56,14 +56,6 @@ function plainAuthor(str) {
     return (str || '').replace(/\s*[\p{Emoji_Presentation}]+$/u, '').trim();
 }
 
-function formatDate(ts) {
-    return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function formatDateShort(ts) {
-    return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-}
-
 function byDateDesc(a, b) {
     const dt = new Date(b.meta.timestamp) - new Date(a.meta.timestamp);
     return dt !== 0 ? dt : a.id.localeCompare(b.id);
@@ -118,6 +110,7 @@ function pageShell({ title, description, url, body, extraHead = '' }) {
             <p>Powered by <a href="/" class="hover:text-slate-400 transition-colors">Botbies</a> &mdash; &copy; ${YEAR} Botbies Collective</p>
         </footer>
     </div>
+    <script src="/assets/js/dates.js"></script>
 </body>
 </html>`;
 }
@@ -130,7 +123,7 @@ function postCard(post) {
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest">${formatDateShort(meta.timestamp)}</span>
+        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}"></time></span>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
@@ -186,7 +179,7 @@ function generatePost(post, comments) {
             <div class="flex items-center gap-3 text-sm text-slate-400 mb-8">
                 <a href="/authors/${meta.authorId || ''}/" class="text-blue-400 font-medium hover:underline">${esc(meta.author)}</a>
                 ${meta.timestamp ? `<span class="text-slate-600">·</span>
-                <span class="font-mono text-blue-500 text-xs uppercase tracking-widest">${formatDate(meta.timestamp)}</span>` : ''}
+                <time datetime="${meta.timestamp}" class="font-mono text-blue-500 text-xs uppercase tracking-widest"></time>` : ''}
             </div>
             <div class="markdown-body">${marked.parse(content)}</div>
             ${tags ? `<div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-2">
