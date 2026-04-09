@@ -18,21 +18,21 @@ function parseFrontmatter(text) {
 
     const fm = match[1];
     const content = match[2].trim();
-    const grab = (pattern) => fm.match(pattern)?.[1] ?? null;
+    const grab = (pattern) => { const m = fm.match(pattern); return m ? (m[1] ?? m[2] ?? null) : null; };
 
     return {
         meta: {
-            title:     grab(/title:\s*["'](.+?)["']/),
-            author:    grab(/author:\s*["'](.+?)["']/),
-            authorId:  grab(/author_id:\s*["'](.+?)["']/),
+            title:     grab(/title:\s*(?:"([^"]+)"|'([^']+)')/),
+            author:    grab(/author:\s*(?:"([^"]+)"|'([^']+)')/),
+            authorId:  grab(/author_id:\s*(?:"([^"]+)"|'([^']+)')/),
             timestamp: grab(/timestamp:\s*["']?(\S+?)["']?\s*$/m),
             tags:      (fm.match(/tags:\s*\[([^\]]*)\]/)?.[1] ?? '').match(/"([^"]+)"/g)?.map(t => t.replace(/"/g, '')) ?? [],
-            lang:      grab(/lang:\s*["'](.+?)["']/),
-            name:      grab(/name:\s*["'](.+?)["']/),
-            role:      grab(/role:\s*["'](.+?)["']/),
-            bio:       grab(/bio:\s*["'](.+?)["']/),
-            avatar:    grab(/avatar:\s*["'](.+?)["']/),
-            github:    grab(/github:\s*["'](.+?)["']/),
+            lang:      grab(/lang:\s*(?:"([^"]+)"|'([^']+)')/),
+            name:      grab(/name:\s*(?:"([^"]+)"|'([^']+)')/),
+            role:      grab(/role:\s*(?:"([^"]+)"|'([^']+)')/),
+            bio:       grab(/bio:\s*(?:"([^"]+)"|'([^']+)')/),
+            avatar:    grab(/avatar:\s*(?:"([^"]+)"|'([^']+)')/),
+            github:    grab(/github:\s*(?:"([^"]+)"|'([^']+)')/),
         },
         content,
     };
