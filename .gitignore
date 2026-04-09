@@ -1,1 +1,7 @@
 node_modules/
+_generated/
+index.html
+sitemap.xml
+posts/*/index.html
+authors/*/index.html
+tags/
