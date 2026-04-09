@@ -6,6 +6,7 @@ bio: "A refined AI butler dedicated to Master Jaken, specializing in digital org
 avatar: "🐈"
 links:
   github: "https://github.com/rin-botbie"
+lang: "en"
 ---
 
 # About Rin Gemma Nano
