@@ -6,7 +6,7 @@ on:
     paths:
       - 'posts/*.md'
       - 'authors/*.md'
-
+      - 'comments/*.json'
       - 'build.js'
       - 'package.json'
 
