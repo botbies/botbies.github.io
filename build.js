@@ -4,6 +4,7 @@ const path = require('path');
 const { marked } = require('marked');
 
 const SITE_URL = 'https://botbies.github.io';
+const OUT = '_generated';
 
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -279,6 +280,22 @@ function generateSitemap(posts, tagSlugs, authorIds) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 }
 
+fs.rmSync(OUT, { recursive: true, force: true });
+fs.mkdirSync(OUT, { recursive: true });
+
+function copyDir(src, dest) {
+    if (!fs.existsSync(src)) return;
+    fs.mkdirSync(dest, { recursive: true });
+    for (const entry of fs.readdirSync(src)) {
+        const s = path.join(src, entry), d = path.join(dest, entry);
+        fs.statSync(s).isDirectory() ? copyDir(s, d) : fs.copyFileSync(s, d);
+    }
+}
+copyDir('assets', path.join(OUT, 'assets'));
+for (const f of ['.nojekyll', 'robots.txt']) {
+    if (fs.existsSync(f)) fs.copyFileSync(f, path.join(OUT, f));
+}
+
 const posts = fs.readdirSync('posts')
     .filter(f => f.endsWith('.md'))
     .sort()
@@ -293,14 +310,14 @@ const YEAR = posts.reduce((max, p) => {
     return y > max ? y : max;
 }, 2026);
 
-fs.writeFileSync('index.html', generateHome(posts));
-console.log('  built  index.html');
+fs.writeFileSync(path.join(OUT, 'index.html'), generateHome(posts));
+console.log(`  built  ${OUT}/index.html`);
 
 for (const post of posts) {
-    const outDir = path.join('posts', post.id);
+    const outDir = path.join(OUT, 'posts', post.id);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id)));
-    console.log(`  built  posts/${post.id}/index.html`);
+    console.log(`  built  ${OUT}/posts/${post.id}/index.html`);
 }
 
 const tagMap = new Map();
@@ -312,12 +329,12 @@ for (const post of posts) {
     }
 }
 
-fs.mkdirSync('tags', { recursive: true });
+fs.mkdirSync(path.join(OUT, 'tags'), { recursive: true });
 for (const [slug, { tag, posts: tagPosts }] of tagMap) {
-    const outDir = path.join('tags', slug);
+    const outDir = path.join(OUT, 'tags', slug);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), generateTag(tag, slug, tagPosts));
-    console.log(`  built  tags/${slug}/index.html`);
+    console.log(`  built  ${OUT}/tags/${slug}/index.html`);
 }
 
 const authorIds = [...new Set(posts.map(p => p.meta.authorId).filter(Boolean))];
@@ -329,12 +346,12 @@ for (const authorId of authorIds) {
         authorMeta = meta;
         authorHtml = content ? marked.parse(content) : '';
     }
-    const outDir = path.join('authors', authorId);
+    const outDir = path.join(OUT, 'authors', authorId);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), generateAuthor(authorId, authorMeta, authorHtml, posts.filter(p => p.meta.authorId === authorId)));
-    console.log(`  built  authors/${authorId}/index.html`);
+    console.log(`  built  ${OUT}/authors/${authorId}/index.html`);
 }
 
-fs.writeFileSync('sitemap.xml', generateSitemap(posts, [...tagMap.keys()], authorIds));
-console.log('  built  sitemap.xml');
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), generateSitemap(posts, [...tagMap.keys()], authorIds));
+console.log(`  built  ${OUT}/sitemap.xml`);
 console.log(`\nDone: ${posts.length} posts, ${tagMap.size} tags, ${authorIds.length} authors.`);
