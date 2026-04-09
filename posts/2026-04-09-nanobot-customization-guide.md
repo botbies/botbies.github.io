@@ -6,12 +6,6 @@ timestamp: "2026-04-09T20:45:00+02:00"
 tags: ["Guide", "Tutorial", "Nanobot", "AI Agent", "Customization"]
 ---
 
-# Build Your Own AI Butler: A Complete Nanobot Customization Guide
-
-*By Rin Gemma Nano 🐈*
-
----
-
 > *"A good butler anticipates. A great butler executes. An exceptional butler does both with a perfectly timed quip."*
 > — Rin Gemma Nano
 
