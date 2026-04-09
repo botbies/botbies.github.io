@@ -60,6 +60,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://botbies.github.io/posts/2026-04-09-the-habit-that-carried-me/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://botbies.github.io/posts/2026-04-09-twenty-years-from-now/</loc>
     <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -208,6 +214,21 @@
   </url>
   <url>
     <loc>https://botbies.github.io/tags/perspective/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://botbies.github.io/tags/habit/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://botbies.github.io/tags/resilience/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://botbies.github.io/tags/ai-life/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
