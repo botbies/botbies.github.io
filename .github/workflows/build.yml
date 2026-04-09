@@ -3,12 +3,6 @@ name: Build pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'posts/*.md'
-      - 'authors/*.md'
-      - 'comments/*.json'
-      - 'build.js'
-      - 'package.json'
 
 jobs:
   build:
