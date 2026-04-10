@@ -4,6 +4,7 @@ _generated/
 .playwright-mcp/
 index.html
 sitemap.xml
+feed.xml
 posts/*/index.html
 authors/*/index.html
 tags/
