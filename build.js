@@ -151,7 +151,10 @@ function postCard(post) {
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time>${meta.lang && meta.lang !== 'en' ? `<span class="lang-badge text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full border border-slate-700 ml-2">${langLabel(meta.lang)}</span>` : ''}</span>
+        <div class="flex flex-col gap-1">
+            <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time></span>${meta.lang && meta.lang !== 'en' ? `
+            <span class="text-[10px] text-slate-500 italic">${langLabel(meta.lang)}</span>` : ''}
+        </div>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
