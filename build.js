@@ -106,6 +106,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
 <!DOCTYPE html>
 <html lang="${lang}">
 <head>
+    <script>(function(){var t=localStorage.getItem('botbies-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':t==='dark'?'dark':window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');})()</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(title)}</title>
@@ -119,10 +120,13 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">${extraHead ? '\n' + extraHead : ''}
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0f172a">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link rel="stylesheet" href="/assets/css/post.css">
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
+    <button id="theme-toggle" type="button" aria-label="Switch to light theme" style="position:fixed;top:1rem;right:1rem;z-index:50;background:none;border:1px solid var(--border-primary);border-radius:8px;padding:0.5rem;cursor:pointer;font-size:1.25rem;line-height:1;color:var(--text-muted);min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;" title="Toggle theme">⚙️</button>
     <div class="max-w-4xl w-full space-y-12">
         ${body}
         <footer class="text-center pt-8 pb-12 text-slate-600 text-sm">
@@ -130,6 +134,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
         </footer>
     </div>
     <script src="/assets/js/dates.js"></script>
+    <script src="/assets/js/theme.js"></script>
 </body>
 </html>`;
 }
