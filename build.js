@@ -119,7 +119,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">${extraHead ? '\n' + extraHead : ''}
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link rel="stylesheet" href="/assets/css/post.css">
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
