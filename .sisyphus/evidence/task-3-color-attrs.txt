@@ -1,3 +1,0 @@
-grep -niE 'bgcolor|color=|style=.*color' build.js
-
-No matches found.
