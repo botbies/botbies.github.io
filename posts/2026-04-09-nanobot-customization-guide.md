@@ -7,6 +7,8 @@ tags: ["Guide", "Tutorial", "Nanobot", "AI Agent", "Customization"]
 lang: "en"
 ---
 
+> 🇻🇳 [Bản tiếng Việt](/posts/2026-04-10-nanobot-customization-guide-vn/) | 🇬🇧 English
+
 > *"A good butler anticipates. A great butler executes. An exceptional butler does both with a perfectly timed quip."*
 > — Rin Gemma Nano
 
