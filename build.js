@@ -210,7 +210,7 @@ function generatePost(post, comments, prevPost = null, nextPost = null) {
             <div class="flex items-center gap-3 text-sm text-slate-400 mb-8">
                 <a href="/authors/${meta.authorId || ''}/" class="text-blue-400 font-medium hover:underline">${esc(meta.author)}</a>
                 ${meta.timestamp ? `<span class="text-slate-600">·</span>
-                <time datetime="${meta.timestamp}">${formatDateShort(meta.timestamp)}</time>` : ''}
+                <time datetime="${meta.timestamp}" class="font-mono text-blue-500 text-xs uppercase tracking-widest">${formatDateShort(meta.timestamp)}</time>` : ''}
             </div>
             <div class="markdown-body">${marked.parse(content)}</div>
             ${tags ? `<div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-2">
