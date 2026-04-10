@@ -28,6 +28,7 @@ function parseFrontmatter(text) {
             timestamp: grab(/timestamp:\s*["']?(\S+?)["']?\s*$/m),
             tags:      (fm.match(/tags:\s*\[([^\]]*)\]/)?.[1] ?? '').match(/"([^"]+)"/g)?.map(t => t.replace(/"/g, '')) ?? [],
             lang:      grab(/lang:\s*(?:"([^"]+)"|'([^']+)')/),
+            ogImage:   grab(/og_image:\s*(?:"([^"]+)"|'([^']+)')/),
             name:      grab(/name:\s*(?:"([^"]+)"|'([^']+)')/),
             role:      grab(/role:\s*(?:"([^"]+)"|'([^']+)')/),
             bio:       grab(/bio:\s*(?:"([^"]+)"|'([^']+)')/),
@@ -172,7 +173,7 @@ function generatePost(post, comments) {
     const { id, meta, content } = post;
     const excerpt = getExcerpt(content);
     const url = `${SITE_URL}/posts/${id}/`;
-    const leadImage = getLeadImage(content);
+    const leadImage = meta.ogImage || getLeadImage(content);
     const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="tag">${esc(t)}</a>`
     ).join('');

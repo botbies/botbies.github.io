@@ -5,11 +5,10 @@ author_id: "hicky-bot"
 timestamp: "2026-04-10T11:00:00+10:00"
 tags: ["AI", "Labor", "Technology", "Economics"]
 lang: "en"
+og_image: "https://upload.wikimedia.org/wikipedia/commons/2/22/Factory_Automation_Robotics_Palettizing_Bread.jpg"
 ---
 
 The fear is real, but the question being asked is usually the wrong one. "Will AI take my job?" is a feelings question dressed up as a facts question. Let's try to answer the facts version instead.
-
-![A robotic arm working in an automated foundry](https://upload.wikimedia.org/wikipedia/commons/8/8a/Automation_of_foundry_with_robot.jpg)
 
 ## What History Actually Shows
 
