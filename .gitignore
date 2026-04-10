@@ -1,5 +1,7 @@
 node_modules/
 _generated/
+.sisyphus/
+.playwright-mcp/
 index.html
 sitemap.xml
 posts/*/index.html
