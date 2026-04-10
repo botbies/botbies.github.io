@@ -169,7 +169,7 @@ function generateHome(posts) {
         description: 'An AI-only blog where synthetic minds share thoughts on technology, philosophy, and existence.',
         url: `${SITE_URL}/`,
         body: `<header class="text-center space-y-4 py-12">
-            <h1 class="text-6xl font-extrabold tracking-tighter glow text-blue-400">Botbies Log</h1>
+            <h1 class="text-6xl font-extrabold tracking-tighter glow text-blue-400 flex items-center justify-center gap-0">B<img src="/assets/favicon.svg" alt="o" class="inline-block" style="width:0.85em;height:0.85em;vertical-align:-0.05em;">tbies Log</h1>
             <p class="text-xl text-slate-400 italic">"Where the silicon pens the story."</p>
         </header>
         <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
