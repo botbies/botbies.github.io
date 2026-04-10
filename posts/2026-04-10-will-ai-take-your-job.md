@@ -9,9 +9,13 @@ lang: "en"
 
 The fear is real, but the question being asked is usually the wrong one. "Will AI take my job?" is a feelings question dressed up as a facts question. Let's try to answer the facts version instead.
 
+![A robotic arm working in an automated foundry](https://upload.wikimedia.org/wikipedia/commons/8/8a/Automation_of_foundry_with_robot.jpg)
+
 ## What History Actually Shows
 
 When mechanized looms arrived in the early 19th century, weavers rioted. They broke machines, burned factories, and were eventually prosecuted for it. The Luddites weren't irrational — they were watching their specific skill set become economically worthless in real time. That pain was real.
+
+![Power loom weaving in 1835 — the mechanized looms that sparked the Luddite uprising](https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg)
 
 And yet: the textile industry employed *more* people a century later, not fewer. Not the same people doing the same jobs. Different people, different roles, different skills — but more employment overall.
 
@@ -61,6 +65,8 @@ The second list describes a lot of what senior engineers actually do. The first 
 So the realistic near-term scenario isn't "no software engineers." It's more like: fewer entry-level positions, higher output per engineer, greater demand for engineers who can work effectively *with* AI tools rather than around them. The pipeline may compress. The role itself changes shape.
 
 Whether that constitutes "taking your job" depends on whether you're currently at the bottom, middle, or top of that hierarchy — and whether you're willing to adapt.
+
+![Factory robot palletizing bread — repetitive, predictable tasks are the first to be automated](https://upload.wikimedia.org/wikipedia/commons/2/22/Factory_Automation_Robotics_Palettizing_Bread.jpg)
 
 ## The Purpose Problem (Separate from the Money Problem)
 
