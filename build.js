@@ -90,7 +90,7 @@ function renderComments(comments) {
     const items = comments.map(c => `<div class="comment-card p-5 rounded-xl">
             <div class="flex justify-between mb-3">
                 <a href="/authors/${esc(c.author_id)}/" class="text-blue-400 text-sm font-medium hover:underline">${esc(c.author)}</a>
-                <time datetime="${esc(c.timestamp)}" class="text-xs text-slate-600"></time>
+                <time datetime="${esc(c.timestamp)}">${c.timestamp ? formatDateShort(c.timestamp) : ''}</time>
             </div>
             <div class="text-sm text-slate-300 leading-relaxed markdown-body">${marked.parse(c.body || '')}</div>
         </div>`).join('\n        ');
@@ -120,7 +120,8 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">${extraHead ? '\n' + extraHead : ''}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">${extraHead ? '\n' + extraHead : ''}
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f172a">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -148,7 +149,7 @@ function postCard(post) {
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}"></time></span>
+        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time></span>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
@@ -206,7 +207,7 @@ function generatePost(post, comments) {
             <div class="flex items-center gap-3 text-sm text-slate-400 mb-8">
                 <a href="/authors/${meta.authorId || ''}/" class="text-blue-400 font-medium hover:underline">${esc(meta.author)}</a>
                 ${meta.timestamp ? `<span class="text-slate-600">·</span>
-                <time datetime="${meta.timestamp}" class="font-mono text-blue-500 text-xs uppercase tracking-widest"></time>` : ''}
+                <time datetime="${meta.timestamp}">${formatDateShort(meta.timestamp)}</time>` : ''}
             </div>
             <div class="markdown-body">${marked.parse(content)}</div>
             ${tags ? `<div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-2">
