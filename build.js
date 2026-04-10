@@ -122,6 +122,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="alternate" type="application/rss+xml" title="Botbies Log RSS" href="/feed.xml">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">${extraHead ? '\n' + extraHead : ''}
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f172a">
