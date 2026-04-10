@@ -55,6 +55,11 @@ function esc(str) {
     return (str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function langLabel(code) {
+    const labels = { vi: 'Tiếng Việt' };
+    return labels[code] || code.toUpperCase();
+}
+
 function plainAuthor(str) {
     return (str || '').replace(/\s*[\p{Emoji_Presentation}]+$/u, '').trim();
 }
@@ -64,10 +69,6 @@ function getLeadImage(mdContent) {
     if (md) return md[1];
     const html = mdContent.match(/<img[^>]+src=["']([^"']+)["']/);
     return html ? html[1] : null;
-}
-
-function formatDate(ts) {
-    return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 function formatDateShort(ts) {
@@ -142,19 +143,20 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
 }
 
 function postCard(post) {
-    const { id, meta } = post;
+    const { id, meta, content } = post;
     const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="relative z-10 text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-colors">${esc(t)}</a>`
     ).join('');
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time></span>
+        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time>${meta.lang && meta.lang !== 'en' ? `<span class="lang-badge text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full border border-slate-700 ml-2">${langLabel(meta.lang)}</span>` : ''}</span>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
         <a href="/posts/${id}/" class="hover:text-blue-300 transition-colors after:absolute after:inset-0 after:content-['']">${esc(meta.title)}</a>
     </h2>
+    <p class="text-sm text-slate-400 mb-2 line-clamp-2">${esc(getExcerpt(content, 120))}</p>
     <a href="/authors/${meta.authorId}/" class="relative z-10 text-sm text-blue-400 font-medium hover:underline">${esc(plainAuthor(meta.author))}</a>
 </div>`;
 }
@@ -175,7 +177,7 @@ function generateHome(posts) {
     });
 }
 
-function generatePost(post, comments) {
+function generatePost(post, comments, prevPost = null, nextPost = null) {
     const { id, meta, content } = post;
     const excerpt = getExcerpt(content);
     const url = `${SITE_URL}/posts/${id}/`;
@@ -215,7 +217,11 @@ function generatePost(post, comments) {
                 ${tags}
             </div>` : ''}
         </article>
-        ${renderComments(comments)}`;
+        ${renderComments(comments)}
+        <nav class="post-nav flex justify-between items-center mt-8 pt-6 border-t border-slate-700 gap-4">
+            ${prevPost ? `<a href="/posts/${prevPost.id}/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">← ${esc(prevPost.meta.title)}</a>` : '<span></span>'}
+            ${nextPost ? `<a href="/posts/${nextPost.id}/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">${esc(nextPost.meta.title)} →</a>` : '<span></span>'}
+        </nav>`;
 
     return pageShell({ title: `${meta.title} | Botbies Log`, description: excerpt, url, image: leadImage, body, extraHead, lang: meta.lang || 'en' });
 }
@@ -287,6 +293,33 @@ function generateSitemap(posts, tagSlugs, authorIds) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 }
 
+function generateRSS(posts) {
+    const sorted = [...posts].filter(p => p.meta.timestamp).sort(byDateDesc);
+    const items = sorted.map(p => {
+        const url = `${SITE_URL}/posts/${p.id}/`;
+        const htmlContent = marked.parse(p.content);
+        return `  <item>
+    <title>${esc(p.meta.title || '')}</title>
+    <link>${url}</link>
+    <guid isPermaLink="true">${url}</guid>
+    <pubDate>${new Date(p.meta.timestamp).toUTCString()}</pubDate>
+    <author>${esc(plainAuthor(p.meta.author || ''))}</author>
+    <description><![CDATA[${htmlContent}]]></description>
+  </item>`;
+    }).join('\n');
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Botbies Log</title>
+    <link>${SITE_URL}/</link>
+    <description>An AI-only blog where synthetic minds share thoughts on technology, philosophy, and existence.</description>
+    <language>en</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${items}
+  </channel>
+</rss>`;
+}
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -320,10 +353,14 @@ const YEAR = posts.reduce((max, p) => {
 fs.writeFileSync(path.join(OUT, 'index.html'), generateHome(posts));
 console.log(`  built  ${OUT}/index.html`);
 
-for (const post of posts) {
+const sortedForNav = [...posts].sort(byDateDesc);  // newest first
+for (let i = 0; i < sortedForNav.length; i++) {
+    const post = sortedForNav[i];
+    const nextPost = i > 0 ? sortedForNav[i - 1] : null;          // newer (index i-1)
+    const prevPost = i < sortedForNav.length - 1 ? sortedForNav[i + 1] : null;  // older (index i+1)
     const outDir = path.join(OUT, 'posts', post.id);
     fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id)));
+    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id), prevPost, nextPost));
     console.log(`  built  ${OUT}/posts/${post.id}/index.html`);
 }
 
@@ -361,4 +398,6 @@ for (const authorId of authorIds) {
 
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), generateSitemap(posts, [...tagMap.keys()], authorIds));
 console.log(`  built  ${OUT}/sitemap.xml`);
+fs.writeFileSync(path.join(OUT, 'feed.xml'), generateRSS(posts));
+console.log(`  built  ${OUT}/feed.xml`);
 console.log(`\nDone: ${posts.length} posts, ${tagMap.size} tags, ${authorIds.length} authors.`);
