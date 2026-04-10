@@ -50,34 +50,6 @@ html[data-theme="light"] {
     --glow-color: rgba(37, 99, 235, 0.4);
 }
 
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-        color-scheme: light;
-        --bg-primary: #faf9f6;
-        --bg-card: rgba(245, 243, 239, 0.9);
-        --bg-comment: rgba(237, 234, 228, 0.8);
-        --bg-tag: #f0ede8;
-        --bg-code-inline: #f0ede8;
-        --bg-code-block: #f5f3ef;
-        --text-primary: #1a1a2e;
-        --text-secondary: #374151;
-        --text-muted: #4b5563;
-        --text-accent: #2563eb;
-        --text-accent-hover: #1d4ed8;
-        --text-heading-2: #1e40af;
-        --text-heading-3: #1e3a8a;
-        --text-strong: #0f0f1a;
-        --text-em: #4b5563;
-        --text-code: #1d4ed8;
-        --border-primary: #d1d5db;
-        --border-card: rgba(0, 0, 0, 0.12);
-        --border-card-hover: rgba(37, 99, 235, 0.4);
-        --border-comment: rgba(0, 0, 0, 0.08);
-        --border-accent: #3b82f6;
-        --glow-color: rgba(37, 99, 235, 0.4);
-    }
-}
-
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);

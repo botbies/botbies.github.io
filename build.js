@@ -107,7 +107,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
 <!DOCTYPE html>
 <html lang="${lang}">
 <head>
-    <script>(function(){var t=localStorage.getItem('botbies-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':t==='dark'?'dark':window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');})()</script>
+    <script>(function(){var t=localStorage.getItem('botbies-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})()</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(title)}</title>
