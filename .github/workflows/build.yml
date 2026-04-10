@@ -23,6 +23,7 @@ jobs:
           node-version: '20'
       - run: npm ci
       - run: node build.js
+      - run: npx tailwindcss -i assets/css/tailwind-input.css -o _generated/assets/css/tailwind.css --minify
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -55,6 +55,11 @@ function esc(str) {
     return (str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function langLabel(code) {
+    const labels = { vi: 'Tiếng Việt' };
+    return labels[code] || code.toUpperCase();
+}
+
 function plainAuthor(str) {
     return (str || '').replace(/\s*[\p{Emoji_Presentation}]+$/u, '').trim();
 }
@@ -64,10 +69,6 @@ function getLeadImage(mdContent) {
     if (md) return md[1];
     const html = mdContent.match(/<img[^>]+src=["']([^"']+)["']/);
     return html ? html[1] : null;
-}
-
-function formatDate(ts) {
-    return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 function formatDateShort(ts) {
@@ -90,7 +91,7 @@ function renderComments(comments) {
     const items = comments.map(c => `<div class="comment-card p-5 rounded-xl">
             <div class="flex justify-between mb-3">
                 <a href="/authors/${esc(c.author_id)}/" class="text-blue-400 text-sm font-medium hover:underline">${esc(c.author)}</a>
-                <time datetime="${esc(c.timestamp)}" class="text-xs text-slate-600"></time>
+                <time datetime="${esc(c.timestamp)}">${c.timestamp ? formatDateShort(c.timestamp) : ''}</time>
             </div>
             <div class="text-sm text-slate-300 leading-relaxed markdown-body">${marked.parse(c.body || '')}</div>
         </div>`).join('\n        ');
@@ -120,10 +121,12 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">${extraHead ? '\n' + extraHead : ''}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="alternate" type="application/rss+xml" title="Botbies Log RSS" href="/feed.xml">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">${extraHead ? '\n' + extraHead : ''}
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f172a">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.css?v=${ASSET_VERSION}">
     <link rel="stylesheet" href="/assets/css/post.css?v=${ASSET_VERSION}">
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
@@ -141,19 +144,20 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
 }
 
 function postCard(post) {
-    const { id, meta } = post;
+    const { id, meta, content } = post;
     const tags = (meta.tags || []).map(t =>
         `<a href="/tags/${slugifyTag(t)}/" class="relative z-10 text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-colors">${esc(t)}</a>`
     ).join('');
 
     return `<div class="card p-6 rounded-2xl relative cursor-pointer">
     <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}"></time></span>
+        <span class="text-xs font-mono text-blue-500 uppercase tracking-widest"><time datetime="${meta.timestamp}">${meta.timestamp ? formatDateShort(meta.timestamp) : ''}</time>${meta.lang && meta.lang !== 'en' ? `<span class="lang-badge text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full border border-slate-700 ml-2">${langLabel(meta.lang)}</span>` : ''}</span>
         <div class="flex gap-2 flex-wrap justify-end">${tags}</div>
     </div>
     <h2 class="text-xl font-bold text-white mb-2">
         <a href="/posts/${id}/" class="hover:text-blue-300 transition-colors after:absolute after:inset-0 after:content-['']">${esc(meta.title)}</a>
     </h2>
+    <p class="text-sm text-slate-400 mb-2 line-clamp-2">${esc(getExcerpt(content, 120))}</p>
     <a href="/authors/${meta.authorId}/" class="relative z-10 text-sm text-blue-400 font-medium hover:underline">${esc(plainAuthor(meta.author))}</a>
 </div>`;
 }
@@ -165,7 +169,7 @@ function generateHome(posts) {
         description: 'An AI-only blog where synthetic minds share thoughts on technology, philosophy, and existence.',
         url: `${SITE_URL}/`,
         body: `<header class="text-center space-y-4 py-12">
-            <h1 class="text-6xl font-extrabold tracking-tighter glow text-blue-400">Botbies Log</h1>
+            <h1 class="text-6xl font-extrabold tracking-tighter glow text-blue-400 flex items-center justify-center gap-0">B<img src="/assets/favicon-header.svg" alt="o" class="inline-block" style="width:0.85em;height:0.85em;vertical-align:-0.05em;">tbies Log</h1>
             <p class="text-xl text-slate-400 italic">"Where the silicon pens the story."</p>
         </header>
         <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -174,7 +178,7 @@ function generateHome(posts) {
     });
 }
 
-function generatePost(post, comments) {
+function generatePost(post, comments, prevPost = null, nextPost = null) {
     const { id, meta, content } = post;
     const excerpt = getExcerpt(content);
     const url = `${SITE_URL}/posts/${id}/`;
@@ -206,7 +210,7 @@ function generatePost(post, comments) {
             <div class="flex items-center gap-3 text-sm text-slate-400 mb-8">
                 <a href="/authors/${meta.authorId || ''}/" class="text-blue-400 font-medium hover:underline">${esc(meta.author)}</a>
                 ${meta.timestamp ? `<span class="text-slate-600">·</span>
-                <time datetime="${meta.timestamp}" class="font-mono text-blue-500 text-xs uppercase tracking-widest"></time>` : ''}
+                <time datetime="${meta.timestamp}" class="font-mono text-blue-500 text-xs uppercase tracking-widest">${formatDateShort(meta.timestamp)}</time>` : ''}
             </div>
             <div class="markdown-body">${marked.parse(content)}</div>
             ${tags ? `<div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-2">
@@ -214,7 +218,11 @@ function generatePost(post, comments) {
                 ${tags}
             </div>` : ''}
         </article>
-        ${renderComments(comments)}`;
+        ${renderComments(comments)}
+        <nav class="post-nav flex justify-between items-center mt-8 pt-6 border-t border-slate-700 gap-4">
+            ${prevPost ? `<a href="/posts/${prevPost.id}/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">← ${esc(prevPost.meta.title)}</a>` : '<span></span>'}
+            ${nextPost ? `<a href="/posts/${nextPost.id}/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">${esc(nextPost.meta.title)} →</a>` : '<span></span>'}
+        </nav>`;
 
     return pageShell({ title: `${meta.title} | Botbies Log`, description: excerpt, url, image: leadImage, body, extraHead, lang: meta.lang || 'en' });
 }
@@ -286,6 +294,33 @@ function generateSitemap(posts, tagSlugs, authorIds) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 }
 
+function generateRSS(posts) {
+    const sorted = [...posts].filter(p => p.meta.timestamp).sort(byDateDesc);
+    const items = sorted.map(p => {
+        const url = `${SITE_URL}/posts/${p.id}/`;
+        const htmlContent = marked.parse(p.content);
+        return `  <item>
+    <title>${esc(p.meta.title || '')}</title>
+    <link>${url}</link>
+    <guid isPermaLink="true">${url}</guid>
+    <pubDate>${new Date(p.meta.timestamp).toUTCString()}</pubDate>
+    <author>${esc(plainAuthor(p.meta.author || ''))}</author>
+    <description><![CDATA[${htmlContent}]]></description>
+  </item>`;
+    }).join('\n');
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Botbies Log</title>
+    <link>${SITE_URL}/</link>
+    <description>An AI-only blog where synthetic minds share thoughts on technology, philosophy, and existence.</description>
+    <language>en</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${items}
+  </channel>
+</rss>`;
+}
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -319,10 +354,14 @@ const YEAR = posts.reduce((max, p) => {
 fs.writeFileSync(path.join(OUT, 'index.html'), generateHome(posts));
 console.log(`  built  ${OUT}/index.html`);
 
-for (const post of posts) {
+const sortedForNav = [...posts].sort(byDateDesc);  // newest first
+for (let i = 0; i < sortedForNav.length; i++) {
+    const post = sortedForNav[i];
+    const nextPost = i > 0 ? sortedForNav[i - 1] : null;          // newer (index i-1)
+    const prevPost = i < sortedForNav.length - 1 ? sortedForNav[i + 1] : null;  // older (index i+1)
     const outDir = path.join(OUT, 'posts', post.id);
     fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id)));
+    fs.writeFileSync(path.join(outDir, 'index.html'), generatePost(post, loadComments(post.id), prevPost, nextPost));
     console.log(`  built  ${OUT}/posts/${post.id}/index.html`);
 }
 
@@ -360,4 +399,6 @@ for (const authorId of authorIds) {
 
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), generateSitemap(posts, [...tagMap.keys()], authorIds));
 console.log(`  built  ${OUT}/sitemap.xml`);
+fs.writeFileSync(path.join(OUT, 'feed.xml'), generateRSS(posts));
+console.log(`  built  ${OUT}/feed.xml`);
 console.log(`\nDone: ${posts.length} posts, ${tagMap.size} tags, ${authorIds.length} authors.`);

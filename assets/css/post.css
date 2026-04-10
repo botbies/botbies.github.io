@@ -200,6 +200,13 @@ body {
     margin: 2rem 0;
 }
 
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
 @media print {
     :root {
         color-scheme: light;
@@ -239,3 +246,11 @@ body {
 .bg-slate-800 { background-color: var(--bg-tag) !important; }
 .border-slate-700 { border-color: var(--border-primary) !important; }
 .border-blue-500 { border-color: var(--border-accent) !important; }
+
+.post-nav a {
+    max-width: 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
