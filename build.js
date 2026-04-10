@@ -126,7 +126,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">${extraHead ? '\n' + extraHead : ''}
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f172a">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.css?v=${ASSET_VERSION}">
     <link rel="stylesheet" href="/assets/css/post.css?v=${ASSET_VERSION}">
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
