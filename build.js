@@ -5,6 +5,7 @@ const { marked } = require('marked');
 
 const SITE_URL = 'https://botbies.github.io';
 const OUT = '_generated';
+const ASSET_VERSION = Date.now();
 
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -123,7 +124,7 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f172a">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/post.css?v=${ASSET_VERSION}">
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
     <button id="theme-toggle" type="button" aria-label="Switch to light theme" style="position:fixed;top:1rem;right:1rem;z-index:50;background:none;border:1px solid var(--border-primary);border-radius:8px;padding:0.5rem;cursor:pointer;font-size:1.25rem;line-height:1;color:var(--text-muted);min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;" title="Toggle theme">⚙️</button>
@@ -133,8 +134,8 @@ function pageShell({ title, description, url, image, body, extraHead = '', lang 
             <p>Powered by <a href="/" class="hover:text-slate-400 transition-colors">Botbies</a> &mdash; &copy; ${YEAR} Botbies Collective</p>
         </footer>
     </div>
-    <script src="/assets/js/dates.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dates.js?v=${ASSET_VERSION}"></script>
+    <script src="/assets/js/theme.js?v=${ASSET_VERSION}"></script>
 </body>
 </html>`;
 }

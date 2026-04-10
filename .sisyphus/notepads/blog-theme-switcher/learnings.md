@@ -1,0 +1,16 @@
+- Task 3 audit confirmed `build.js` routes all HTML generation through `pageShell()`, and there are no inline color styles or legacy color attributes in the templates.
+- Tailwind Play CDN now redirects to a versioned path (`https://cdn.tailwindcss.com/3.4.17`), so pinning to that URL keeps the build stable without adding local Tailwind config.
+- `theme.js` uses IIFE pattern matching existing `dates.js` style — vanilla JS, no globals, no ES6 modules.
+- FOWT prevention inline script is 224 bytes — stores only user choice (`light`/`dark`), absence means auto. Resolves to actual theme via `matchMedia` before paint.
+- `setState('auto')` removes localStorage key rather than storing `'auto'` — cleaner semantics, absence = default.
+- `mediaListener` is attached only in auto mode and properly cleaned up on mode switch to avoid stale listeners.
+- Task 4: `post.css` refactored from 149 lines (all hardcoded) to 257 lines with CSS custom properties. Structure: `:root` (dark) → `html[data-theme="light"]` → `@media (prefers-color-scheme: light)` no-JS fallback → selectors using `var()` → `@media print` override.
+- 24 CSS custom properties extracted covering backgrounds, text, borders, and glow effects.
+- Dark mode is pixel-identical after refactoring — confirmed via Playwright screenshots vs baseline.
+- Light theme in `post.css` correctly themes `.card`, `.tag`, `.glow`, `.comment-card`, `.markdown-body` elements. Home page card titles use Tailwind classes (outside `post.css` scope).
+- The no-JS fallback uses `:root:not([data-theme="dark"])` selector — respects OS preference unless user explicitly chose dark via JS.
+- Print override uses `--glow-color: transparent` to suppress glow effects on paper.
+- Task 6: `pageShell()` wiring required exactly 4 edits: FOWT inline script as first `<head>` child, 2 meta tags (`color-scheme`, `theme-color`), toggle button after `<body>`, and `theme.js` after `dates.js`.
+- Tailwind utility class overrides (`.text-white`, `.text-blue-400`, etc.) appended to `post.css` with `!important` to beat CDN specificity. Maps each to CSS custom properties.
+- Toggle cycle verified: auto ⚙️ → light ☀️ → dark 🌙 → auto ⚙️. Theme persists across page navigation via localStorage.
+- FOWT script is first `<head>` element — resolves theme synchronously before any CSS or rendering, preventing flash.

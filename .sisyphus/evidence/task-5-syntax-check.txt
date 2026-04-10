@@ -1,0 +1,11 @@
+Syntax: OK
+Key pattern count:
+9
+FOWT script bytes: 224
+--- Pattern verification ---
+assets/js/theme.js
+assets/js/theme.js
+assets/js/theme.js
+assets/js/theme.js
+assets/js/theme.js
+assets/js/theme.js
