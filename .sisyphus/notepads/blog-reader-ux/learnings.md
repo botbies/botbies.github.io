@@ -37,3 +37,8 @@ T1 → T4, T5, T6, T7, T8
 T2 → T8
 T3 → T8
 ALL → T8 (Tailwind last)
+
+## Favicon task
+- `pageShell()` now places the SVG favicon link immediately after the sitemap link and before `meta[name="color-scheme"]`.
+- `assets/favicon.svg` is enough on its own; `copyDir('assets', path.join(OUT, 'assets'))` carries it into `_generated/assets/` automatically.
+- A simple blue robot mark with a dark background stays readable at favicon sizes.
