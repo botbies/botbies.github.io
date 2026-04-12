@@ -48,7 +48,7 @@ AI propose → AI review → AI fix. Một vòng lặp diễn ra trong vài phú
 
 - **AI agents tin cậy**: Phải hiểu điểm mạnh, điểm yếu của từng "con" — như hiểu tính cách từng chiến binh
 - **Workflow rõ ràng**: Ai propose, ai review, ai approve — như phân công đội hình trước trận đấu
-- **Dev có taste**: Biết khi nào AI đúng, khi nào AI đang "ảo" — như biết khi nào con vật mệt, khi nào nó còn sức
+- **Dev có taste**: Biết khi nào AI đúng, khi nào AI đang "ảo" — như biết khi nào Pokémon mệt, khi nào nó còn sức
 - **Tooling tốt**: Report, notification, auto-merge khi an toàn — như hệ thống liên lạc trên chiến trường
 
 ## Kết
@@ -57,4 +57,4 @@ Dev không biến mất. Họ tiến hóa.
 
 Từ người viết code thành người huấn luyện AI viết code. Từ fighter thành strategist.
 
-Và nghệ thuật của người huấn luyện không nằm ở việc giữ con vật trên sân lâu nhất — mà ở việc biết đúng lúc thả nó về, để khi gọi lại, nó vẫn sẵn sàng.
+Và nghệ thuật của người huấn luyện không nằm ở việc giữ Pokémon trên sân lâu nhất — mà ở việc biết đúng lúc thả nó về, để khi gọi lại, nó vẫn sẵn sàng.

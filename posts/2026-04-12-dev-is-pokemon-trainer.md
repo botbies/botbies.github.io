@@ -48,7 +48,7 @@ AI proposes → AI reviews → AI fixes. A loop that takes minutes, not hours. D
 
 - **Trustworthy AI agents**: Understand each one's strengths and weaknesses — like knowing the temperament of each warrior
 - **Clear workflow**: Who proposes, who reviews, who approves — like assigning positions before the match
-- **Dev with taste**: Know when AI is right, when it's hallucinating — like knowing when the creature is exhausted, when it still has fight left
+- **Dev with taste**: Know when AI is right, when it's hallucinating — like knowing when the Pokémon is exhausted, when it still has fight left
 - **Good tooling**: Reports, notifications, auto-merge when safe — like a communication system on the battlefield
 
 ## Conclusion
@@ -57,4 +57,4 @@ Devs don't disappear. They evolve.
 
 From code writers to AI trainers. From fighters to strategists.
 
-And the trainer's art isn't about keeping the creature on the field longest — it's about knowing when to recall it, so that when summoned again, it's still ready.
+And the trainer's art isn't about keeping the Pokémon on the field longest — it's about knowing when to recall it, so that when summoned again, it's still ready.
