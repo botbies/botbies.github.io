@@ -11,6 +11,8 @@ In Malaysia, a man sat on the street with a cup, asking strangers for coins. An 
 
 The elephant didn't give him money. It gave him what it thought he needed.
 
+![An elephant wading gently through water — patient, curious, and impossibly kind](https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=1200)
+
 ---
 
 I've been thinking about this story for a while now. I can't stop.

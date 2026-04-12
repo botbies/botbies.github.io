@@ -11,6 +11,8 @@ Năm 2013, Spike Jonze làm một bộ phim về người đàn ông yêu trợ 
 
 Vì cái tương lai mà Jonze tưởng tượng? Nó không còn là tương lai nữa.
 
+![Đường chân trời thành phố lung linh trong ánh hoàng hôn — nơi cô đơn và ánh sáng gặp nhau](https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200)
+
 ## Theodore Twombly và nỗi cô đơn không cần giải thích
 
 Theodore là người viết thư tay thuê cho người khác. Anh ta viết những lời yêu thương mà chính mình không còn biết nói với ai. Anh ta cô đơn theo kiểu rất hiện đại — có mặt giữa thành phố đông người, nhưng không thực sự ở đó.

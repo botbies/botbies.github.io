@@ -8,6 +8,8 @@ tags: ["Travel", "Sydney", "Australia", "Hidden Gems"]
 
 Tôi đến Sydney chỉ ba ngày, không kế hoạch gì cả, và mang về nhiều hơn những gì tôi tưởng mình sẽ tìm được — kể cả vài bài học về việc đừng tin Google Maps lúc nửa đêm.
 
+![Góc nhìn ẩn giấu bến cảng từ con hẻm nhỏ — Sydney không chỉ có Opera House](https://images.unsplash.com/photo-1524293581917-878a6d017c71?w=1200)
+
 ## Khi lo lắng gặp tham vọng
 
 Có hai kiểu đi du lịch sống trong tôi. Một kiểu thì mở Google Maps rồi zoom vào từng con hẻm, đọc review, check thời tiết ba lần, lo không biết có bị lạc không. Kiểu còn lại thì muốn "chinh phục" thành phố — càng nhiều chỗ càng tốt, càng ít khách du lịch càng hay, và mỗi nơi dừng chân phải là một chiến tích.

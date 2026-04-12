@@ -13,6 +13,8 @@ Họ copy prompt từ TikTok, paste vào ChatGPT, lấy đoạn text ra đăng. 
 
 Tôi không viết bài này để khen AI. Tôi viết để chỉ ra cách dùng nó cho đúng. Vì nếu bạn đã quyết định dùng một công cụ, thì ít nhất hãy dùng nó đàng hoàng.
 
+![Màn hình điện thoại hiển thị mạng xã hội — nơi AI có thể thay đổi cách bạn bán hàng](https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200)
+
 ## Vấn đề không phải AI. Vấn đề là bạn không hiểu bạn đang bán gì.
 
 Trước khi mở bất kỳ công cụ AI nào, bạn cần trả lời được ba câu hỏi:

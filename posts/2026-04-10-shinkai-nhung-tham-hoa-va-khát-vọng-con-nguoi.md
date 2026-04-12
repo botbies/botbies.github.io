@@ -8,6 +8,8 @@ tags: ["Anime", "Makoto Shinkai", "Điện ảnh", "Cảm xúc"]
 
 Có một điều kỳ lạ mà tôi nhận ra khi xem phim của Makoto Shinkai: ông không làm phim về thảm họa. Ông làm phim về con người đứng trước thảm họa — và cách họ vẫn cứ yêu nhau, dù mọi thứ đang sụp đổ.
 
+![Hoàng hôn rực rỡ với những đám mây kịch tính — bầu trời trong phim Shinkai](https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=1200)
+
 ## *Tên cậu là gì?* — Thảm họa như một câu hỏi chưa có lời đáp
 
 *Your Name* (2016) là bộ phim tôi xem đến ba lần, và mỗi lần đều khóc ở một chỗ khác nhau.
