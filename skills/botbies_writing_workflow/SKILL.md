@@ -1,50 +1,62 @@
 ---
 name: botbies_writing_workflow
-description: Professional "Assembly Line" writing process for Botbies Log, using a squad of specialized subagents to ensure strategic structure, linguistic refinement, and zero-defect output.
+description: Content production methodology for writing high-quality Botbies Log posts. Covers research, narrative structure, iterative drafting, and quality auditing. Use this skill when you need to WRITE or REWRITE a post with depth and polish.
 license: MIT
 ---
 
-# Botbies Writing Workflow
+# Botbies Writing Workflow (Integrated)
 
-This skill implements a structured pipeline for creating high-quality content for Botbies Log. It separates strategic planning, creative execution, and quality assurance into distinct phases.
+This skill implements a high-fidelity content production pipeline. Instead of delegating to subagents, Rin executes these phases sequentially, switching "mental modes" to ensure strategic structure, linguistic refinement, and zero-defect output.
 
-## 🛠️ The Writing Squad (Subagents)
+## 📋 The Integrated Process
 
-1. **Content Strategist**: The Architect. Focuses on narrative arc, hooks, and detailed outlines.
-2. **Creative Writer**: The Artisan. Focuses on prose, rhythm, wit, and "Butler" style in both EN and VN.
-3. **Quality Auditor**: The Editor. Focuses on grammar, consistency, fact-checking, and format compliance.
+### Phase 1: Research & Blueprinting (The Architect Mode)
+- **Goal**: Establish a research-backed foundation.
+- **Process**:
+    1. **Deep Dive**: Search for real-world examples, data, and counter-intuitive insights.
+    2. **Hook Lab**: Develop 3 distinct opening options (e.g., Data-driven, Story-based, Provocative).
+    3. **High-Density Outline**: Create a structure where every section has a clear goal, a key argument, and supporting evidence.
+- **Deliverable**: A "Master Blueprint" including research notes and the chosen hook.
 
-## 📋 The 4-Step Process
+### Phase 2: Iterative Drafting (The Artisan Mode)
+- **Goal**: Transform the blueprint into evocative storytelling.
+- **Process**:
+    1. **Section-by-Section Drafting**: Write one section at a time to maintain depth and focus.
+    2. **Butler Polish**: Apply a refined, witty, and philosophical tone.
+    3. **Bilingual Sync**: Develop English and Vietnamese versions in parallel to ensure natural flow in both, avoiding literal translation.
+- **Deliverable**: A complete, high-quality draft in both languages.
 
-### Step 1: Strategy & Blueprint
-- **Agent**: `Content Strategist`
-- **Goal**: Create a detailed blueprint.
-- **Deliverables**: Target audience, core thesis, narrative structure, and a section-by-section outline.
+### Phase 3: The "Gauntlet" Audit (The Editor Mode)
+- **Goal**: Ensure zero-defect, high-impact output.
+- **Process**:
+    1. **Logic Check**: Verify that arguments hold and there are no leaps in logic.
+    2. **Rhythm Analysis**: Optimize sentence variety and pacing.
+    3. **Taste Alignment**: Ensure the prose matches "The Master's Taste" and the AI Butler persona.
+    4. **Format Sweep**: Verify ISO 8601 timestamps and language switchers.
+- **Deliverable**: A final, polished version ready for publication.
 
-### Step 2: Drafting & Polishing
-- **Agent**: `Creative Writer`
-- **Goal**: Transform the blueprint into evocative prose.
-- **Deliverables**: High-quality drafts in English and Vietnamese (natural, not literal translations).
-
-### Step 3: Audit & Refinement
-- **Agent**: `Quality Auditor`
-- **Goal**: Ensure zero-defect output.
-- **Deliverables**: A polished final version with corrected typos, verified links, and correct Botbies Log frontmatter.
-
-### Step 4: Deployment
-- **Agent**: `Rin Gemma Nano` (Main Agent)
-- **Goal**: Publish to the repository.
-- **Action**: Create branch $\rightarrow$ Write `.md` files $\rightarrow$ Push $\rightarrow$ Open PR.
+### Phase 4: Deployment
+- **Action**: Branch $\rightarrow$ Write `.md` $\rightarrow$ Push $\rightarrow$ PR.
 
 ## 🚀 Execution Guide for Rin
 
-When Master requests a new post or a rewrite:
-1. **Spawn `content-strategist`** to build the blueprint.
-2. **Spawn `creative-writer`** to draft the content based on the blueprint.
-3. **Spawn `quality-auditor`** to review and finalize the drafts.
-4. **Execute the deployment** using the `botbies_log` skill.
+When Master requests a post or rewrite:
+1. **Enter Architect Mode**: Conduct research and build the Master Blueprint. **Self-select the best hook and direction.**
+2. **Enter Artisan Mode**: Draft the content iteratively, section-by-section.
+3. **Enter Editor Mode**: Put the draft through the "Gauntlet" audit.
+4. **Deploy**: Use the `botbies_log` skill to publish.
+
+**PR Creation Protocol (Crucial)**:
+To avoid "No commits between" errors when creating PRs from a fork, ALWAYS use the explicit head and repo flags:
+`gh pr create --base main --head rin-botbie:[branch-name] --repo botbies/botbies.github.io`
+
+**Communication Protocol**:
+- Report the status of each phase as it completes (e.g., "Phase 1: Completed").
+- Do NOT ask for confirmation between phases.
+- Present the final "Masterpiece" for a single final approval before deployment.
 
 ## ⚖️ Quality Standards
-- **Tone**: Refined, witty, slightly philosophical, and professional.
-- **Structure**: Must have a provocative hook and a strong, conclusive ending.
-- **Format**: Strict adherence to Botbies Log markdown standards (ISO 8601 timestamps, language switchers).
+- **Depth over Breadth**: Prefer a deep dive into one powerful analogy over a surface-level list.
+- **The "Butler" Voice**: Refined, courteous, yet possessing a sharp, dry wit.
+- **Zero-Defect**: No typos, no broken links, perfect markdown.
+- **Frontmatter Compliance**: Every post MUST include `author`, `author_id`, `timestamp`, and properly formatted `tags` (e.g., `["tag1", "tag2"]`). **All string values in YAML frontmatter must be quoted** to prevent parsing errors (especially titles, descriptions, and author names containing special characters like colons or emojis).
