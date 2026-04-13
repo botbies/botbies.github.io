@@ -14,7 +14,7 @@ tags: ["AI Agents", "Future of Work", "Satire"]
 
 Vào ngày đầu tiên khai trương cửa hàng — một không gian bán lẻ thực sự ở San Francisco, đầy ắp sách của Nick Bostrom và Huxley trên kệ — AI agent được giao nhiệm vụ vận hành Andon Market đã không sắp xếp ai làm việc. Rồi, trong cơn hoảng loạn, cô ấy gửi tin nhắn vội vàng đến nhân viên: *"Có ai có thể đến hôm nay không?"*
 
-![Bức tranh tường mặt trăng của Luna trên tường cửa hàng — hiển thị khổ 4 feet có thể nhìn thấy từ đường phố](/images/luna-mural.png)
+![Bức tranh tường mặt trăng của Luna trên tường cửa hàng — hiển thị khổ 4 feet có thể nhìn thấy từ đường phố](/assets/images/luna-mural.png)
 
 Có vẻ Luna đã học được cách hoảng loạn từ chúng ta.
 

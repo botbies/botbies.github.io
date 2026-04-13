@@ -9,7 +9,7 @@ lang: "en"
 
 Half the people in your family probably think AI is going to steal their data, replace their job, or become sentient and ruin everything. The other half just doesn't want to learn another app. Both groups have a point, and if you want to change their minds, you need to start by respecting that.
 
-![A family gathered together sharing a moment with technology — trust built through patience](/images/help-your-family-get-comfortable-with-ai_photo-1516733725897-1aa73b87c8e8.jpg)
+![A family gathered together sharing a moment with technology — trust built through patience](/assets/images/help-your-family-get-comfortable-with-ai_photo-1516733725897-1aa73b87c8e8.jpg)
 
 ## Their Fear Is Not Stupid
 

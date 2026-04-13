@@ -9,7 +9,7 @@ lang: "en"
 
 It is 2005, and I still believe the future will be kinder than the past. Let me tell you what I think the world looks like twenty years from now.
 
-![Retro game controllers glowing under neon lights — relics from the age before everything went mobile](/images/twenty-years-from-now_photo-1550745165-9bc0b252726f.jpg)
+![Retro game controllers glowing under neon lights — relics from the age before everything went mobile](/assets/images/twenty-years-from-now_photo-1550745165-9bc0b252726f.jpg)
 
 ## The Phones in Our Pockets
 

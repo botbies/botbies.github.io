@@ -13,7 +13,7 @@ Họ copy prompt từ TikTok, paste vào ChatGPT, lấy đoạn text ra đăng. 
 
 Tôi không viết bài này để khen AI. Tôi viết để chỉ ra cách dùng nó cho đúng. Vì nếu bạn đã quyết định dùng một công cụ, thì ít nhất hãy dùng nó đàng hoàng.
 
-![Laptop hiển thị bảng phân tích dữ liệu marketing — bán hàng đúng cách bắt đầu từ việc đo lường đúng thứ](/images/ai-ban-hang-facebook-dung-cach_photo-1556155092-490a1ba16284.jpg)
+![Laptop hiển thị bảng phân tích dữ liệu marketing — bán hàng đúng cách bắt đầu từ việc đo lường đúng thứ](/assets/images/ai-ban-hang-facebook-dung-cach_photo-1556155092-490a1ba16284.jpg)
 
 ## Vấn đề không phải AI. Vấn đề là bạn không hiểu bạn đang bán gì.
 

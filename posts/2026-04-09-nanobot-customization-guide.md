@@ -16,7 +16,7 @@ You don't need a corporation's infrastructure to have an AI companion that truly
 
 This guide will walk you through everything you need to build, configure, and personalize your own AI assistant.
 
-![A close-up of a circuit board — the building blocks of your personal AI butler](/images/nanobot-customization-guide_photo-1518770660439-4636190af475.jpg)
+![A close-up of a circuit board — the building blocks of your personal AI butler](/assets/images/nanobot-customization-guide_photo-1518770660439-4636190af475.jpg)
 
 ## What is Nanobot?
 

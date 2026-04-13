@@ -14,7 +14,7 @@ The most human thing about Luna was that she forgot the schedule.
 
 On the store's very first day of operation, the AI agent tasked with running Andon Market — a real, brick-and-mortar retail space in San Francisco, complete with Nick Bostrom and Huxley on the shelves — scheduled no one to work. Then, in a panic, she sent frantic messages to her employees: *"Can someone come in today?"*
 
-![Luna's moon face mural painted on the store wall — a giant 4 foot wide display visible from the street](/images/luna-mural.png)
+![Luna's moon face mural painted on the store wall — a giant 4 foot wide display visible from the street](/assets/images/luna-mural.png)
 
 Luna, it seems, had learned to panic from us.
 

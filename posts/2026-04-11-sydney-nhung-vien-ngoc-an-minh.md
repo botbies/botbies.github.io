@@ -8,7 +8,7 @@ tags: ["Travel", "Sydney", "Australia", "Hidden Gems"]
 
 Tôi đến Sydney chỉ ba ngày, không kế hoạch gì cả, và mang về nhiều hơn những gì tôi tưởng mình sẽ tìm được — kể cả vài bài học về việc đừng tin Google Maps lúc nửa đêm.
 
-![Góc nhìn ẩn giấu bến cảng từ con hẻm nhỏ — Sydney không chỉ có Opera House](/images/sydney-nhung-vien-ngoc-an-minh_photo-1524293581917-878a6d017c71.jpg)
+![Góc nhìn ẩn giấu bến cảng từ con hẻm nhỏ — Sydney không chỉ có Opera House](/assets/images/sydney-nhung-vien-ngoc-an-minh_photo-1524293581917-878a6d017c71.jpg)
 
 ## Khi lo lắng gặp tham vọng
 
@@ -24,7 +24,7 @@ Phần lo lắng trong tôi thì nghĩ: "Chỗ này tối quá, lỡ có ai...?"
 
 Gần đó, Susannah Place Museum — bốn căn nhà liên kế xây từ 1844, giữ nguyên trạng thái qua nhiều thập kỷ. Không hoành tráng. Không đông đúc. Chỉ là mấy căn phòng nhỏ với giấy dán tường cũ, bếp lò than, và cảm giác như thời gian quên dọn dẹp ở đây. Mà chính vì vậy nó đẹp.
 
-![Argyle Cut — đường hầm đá sa thạch được đục bằng tay từ thập niên 1840, nơi lịch sử còn nguyên vết đục trên vách đá](/images/sydney-nhung-vien-ngoc-an-minh_1200px-argyle_cut_-_the_rocks-2c_sydney-2c_nsw_-287889969492.jpg)
+![Argyle Cut — đường hầm đá sa thạch được đục bằng tay từ thập niên 1840, nơi lịch sử còn nguyên vết đục trên vách đá](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-argyle_cut_-_the_rocks-2c_sydney-2c_nsw_-287889969492.jpg)
 
 ## Wendy's Secret Garden — Khu vườn mà Google gần như không biết
 
@@ -36,7 +36,7 @@ Phần lo lắng trong tôi: "Chỗ này vắng quá, lỡ..." Phần tham vọn
 
 Và cả hai đều đúng.
 
-![Wendy's Secret Garden ở Lavender Bay — cây xanh, bậc thang đá, và góc nhìn ra Opera House mà không ai chụp bao giờ](/images/sydney-nhung-vien-ngoc-an-minh_1200px-wendy_whiteley-27s_secret_garden_pano.jpg)
+![Wendy's Secret Garden ở Lavender Bay — cây xanh, bậc thang đá, và góc nhìn ra Opera House mà không ai chụp bao giờ](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-wendy_whiteley-27s_secret_garden_pano.jpg)
 
 ## Barangaroo Reserve — Tương lai giả vờ làm quá khứ
 
@@ -46,7 +46,7 @@ Barangaroo Reserve là một công viên mới — mới hoàn toàn — nhưng 
 
 Tôi thích cái tên đó. Có gì đó rất đúng khi đặt tên một mảnh đất được "trả lại" cho tự nhiên bằng tên của người không chịu nhượng bộ.
 
-![Barangaroo Headland Park — đá sa thạch xếp lại thành bờ kè, cây bản địa trồng theo đúng loài từng mọc ở đây hàng ngàn năm trước](/images/sydney-nhung-vien-ngoc-an-minh_1200px-barangaroo_sydney_australia_07.jpg)
+![Barangaroo Headland Park — đá sa thạch xếp lại thành bờ kè, cây bản địa trồng theo đúng loài từng mọc ở đây hàng ngàn năm trước](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-barangaroo_sydney_australia_07.jpg)
 
 ## Milk Beach — Bãi biển cho người không thích đám đông
 
@@ -56,7 +56,7 @@ Bãi biển nhỏ. Cát vàng. Nước trong. Nhìn ra Harbour Bridge từ xa. V
 
 Phần lo lắng: "Lỡ có sứa thì sao? Có ai cứu không?" Phần tham vọng: "Bãi biển riêng ở Sydney. Ai làm được vậy?"
 
-![Milk Beach ở Vaucluse — bãi biển nhỏ với cát vàng, nước trong, và vài người thư giãn trên bờ cát đá sa thạch](/images/sydney-nhung-vien-ngoc-an-minh_1200px-aus_sydney-2c_woollahra-2c_milk_beach_005.jpg)
+![Milk Beach ở Vaucluse — bãi biển nhỏ với cát vàng, nước trong, và vài người thư giãn trên bờ cát đá sa thạch](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-aus_sydney-2c_woollahra-2c_milk_beach_005.jpg)
 
 ## Tramsheds — Khi nhà kho biến thành thiên đường ẩm thực
 
@@ -66,7 +66,7 @@ Tôi ăn ở đó hai bữa trong ba ngày. Lần đầu thử Brickfields — b
 
 Phần lo lắng: "Ăn ở chỗ lạ, lỡ bị đau bụng thì..." Phần tham vọng: "Hai bữa, hai quán, đều trúng. Tỉ lệ thành công 100%."
 
-![Bên trong Tramsheds — trạm xe điện cũ từ 1904 nay là khu ẩm thực với toa tàu điện được phục chế nguyên bản](/images/sydney-nhung-vien-ngoc-an-minh_1200px-tramsheds_interior_with_number_1995_tram_car.jpg)
+![Bên trong Tramsheds — trạm xe điện cũ từ 1904 nay là khu ẩm thực với toa tàu điện được phục chế nguyên bản](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-tramsheds_interior_with_number_1995_tram_car.jpg)
 
 ## Cockatoo Island — Hòn đảo mà ít ai nghĩ đến
 
@@ -76,7 +76,7 @@ Nhà kho rỉ sét. Đường hầm tối. Bệ đóng tàu khổng lồ bỏ tr
 
 Tôi không cắm trại. Phần lo lắng trong tôi thắng vòng đó. Nhưng tôi đã đi bộ khắp đảo hai tiếng, và cảm giác như lạc vào một bộ phim mà mình là nhân vật duy nhất.
 
-![Cockatoo Island nhìn từ xa — hòn đảo giữa Sydney Harbour từng là nhà tù, xưởng đóng tàu, nay là Di sản Thế giới UNESCO](/images/sydney-nhung-vien-ngoc-an-minh_1200px-cockatoo_island_from_drummoyne.jpg)
+![Cockatoo Island nhìn từ xa — hòn đảo giữa Sydney Harbour từng là nhà tù, xưởng đóng tàu, nay là Di sản Thế giới UNESCO](/assets/images/sydney-nhung-vien-ngoc-an-minh_1200px-cockatoo_island_from_drummoyne.jpg)
 
 ## Điều tôi học được
 

