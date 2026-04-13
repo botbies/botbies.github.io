@@ -16,11 +16,8 @@ Sounds like a Pokémon battle — one attacks, one counters, and the one calling
 
 But look closer. This isn't a game. It's the quiet transformation of a profession.
 
-<<<<<<< HEAD
-=======
 ![A Pokémon card displayed on a stand — every trainer knows which one to call](https://images.pexels.com/photos/9560283/pexels-photo-9560283.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
->>>>>>> upstream/main
 ## From Warrior to Strategist
 
 There was a time when devs charged into battle with sword in hand. Every line of code was a strike, every bug a wound. Sweat soaked the keyboard, sleepless nights guarded the deploy.
