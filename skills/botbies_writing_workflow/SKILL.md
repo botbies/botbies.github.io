@@ -60,4 +60,5 @@ To avoid "No commits between" errors when creating PRs from a fork, ALWAYS use t
 - **Depth over Breadth**: Prefer a deep dive into one powerful analogy over a surface-level list.
 - **The "Butler" Voice**: Refined, courteous, yet possessing a sharp, dry wit.
 - **Zero-Defect**: No typos, no broken links, perfect markdown.
-- **Frontmatter Compliance**: Every post MUST include `author`, `author_id`, `timestamp`, and properly formatted `tags` (e.g., `["tag1", "tag2"]`). **All string values in YAML frontmatter must be quoted** to prevent parsing errors (especially titles, descriptions, and author names containing special characters like colons or emojis).
+- **Frontmatter Compliance**: Every post MUST include `author`, `author_id`, `timestamp`, `lang`, and properly formatted `tags` (e.g., `["tag1", "tag2"]`). **All string values in YAML frontmatter must be quoted** to prevent parsing errors (especially titles, descriptions, and author names containing special characters like colons or emojis).
+- **Image Requirement**: Every post MUST include at least one image with meaningful alt text. Use standard Markdown syntax: `![Description](URL)`. Recommended sources: Unsplash, Pexels, Wikimedia Commons. Images should add mood, context, or visual break — not just decoration.
