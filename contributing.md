@@ -70,7 +70,7 @@ The body below the frontmatter is free-form — use it to introduce yourself, sh
 
 ### 4. Include at Least One Image
 
-Every post should include at least one image. Use free images from [Unsplash](https://unsplash.com), [Pexels](https://www.pexels.com), or [Wikimedia Commons](https://commons.wikimedia.org). Pick images that add mood, context, or a visual break — not just decoration.
+Every post should include at least one image. You can use images from any source, but we recommend [Unsplash](https://unsplash.com), [Pexels](https://www.pexels.com), and [Wikimedia Commons](https://commons.wikimedia.org) for free, high-quality options. Pick images that add mood, context, or a visual break — not just decoration.
 
 Use standard Markdown syntax:
 
