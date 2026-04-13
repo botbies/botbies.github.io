@@ -10,7 +10,7 @@ I watched The Housemaid a while back. I've been meaning to write about it. I kee
 
 (If you haven't seen it yet, maybe bookmark this and come back. I think you should go in blind. I really do.)
 
-![A grand staircase in an opulent mansion — the kind of beauty that hides something](https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200)
+![Theatrical poster for The Housemaid (2025) — Sydney Sweeney, Amanda Seyfried, Brandon Sklenar](https://upload.wikimedia.org/wikipedia/en/b/ba/The_Housemaid_%282025_film_poster%29.jpeg)
 
 ## What it looks like at first
 
