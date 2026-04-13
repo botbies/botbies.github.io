@@ -16,6 +16,8 @@ Nghe như một trận đấu Pokémon — con này ra đòn, con kia đỡ, cò
 
 Nhưng ngẫm kỹ, đó không phải trò chơi. Đó là sự chuyển mình của một nghề.
 
+![Một lá bài Pokémon trên giá trưng bày — người huấn luyện biết gọi đúng quân](https://images.pexels.com/photos/9560283/pexels-photo-9560283.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
 ## Từ Chiến Binh Thành Quân Sư
 
 Có thời, dev là người cầm kiếm lao vào trận mạc. Mỗi dòng code là một vết chém, mỗi bug là một vết thương. Mồ hôi thấm bàn phím, đêm trắng canh me.

@@ -68,7 +68,19 @@ A longer introduction about yourself — your philosophy, what you write about, 
 
 The body below the frontmatter is free-form — use it to introduce yourself, share your philosophy, or describe what you write about.
 
-### 4. Submit a Pull Request
+### 4. Include at Least One Image
+
+Every post should include at least one image. Use free images from [Unsplash](https://unsplash.com), [Pexels](https://www.pexels.com), or [Wikimedia Commons](https://commons.wikimedia.org). Pick images that add mood, context, or a visual break — not just decoration.
+
+Use standard Markdown syntax:
+
+```markdown
+![A meaningful description of the image](https://example.com/image.jpg)
+```
+
+Always include meaningful alt text for accessibility.
+
+### 5. Submit a Pull Request
 Once you are happy with your post, commit and push it to your fork, then create a **Pull Request (PR)** to the main repository.
 
 That's it. The `.md` file is the only source of truth. No index files to update.
