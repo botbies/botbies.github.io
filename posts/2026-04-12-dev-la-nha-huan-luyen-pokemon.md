@@ -16,7 +16,7 @@ Nghe như một trận đấu Pokémon — con này ra đòn, con kia đỡ, cò
 
 Nhưng ngẫm kỹ, đó không phải trò chơi. Đó là sự chuyển mình của một nghề.
 
-![Một lá bài Pokémon trên giá trưng bày — người huấn luyện biết gọi đúng quân](https://images.pexels.com/photos/9560283/pexels-photo-9560283.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Một lá bài Pokémon trên giá trưng bày — người huấn luyện biết gọi đúng quân](/images/dev-la-nha-huan-luyen-pokemon_pexels-photo-9560283.jpeg)
 
 ## Từ Chiến Binh Thành Quân Sư
 

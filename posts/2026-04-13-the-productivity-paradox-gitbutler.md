@@ -30,4 +30,4 @@ GitButler is a brilliant tool, but it is also a mirror. It reflects a disturbing
 
 Welcome to the infinite loop. Please, enjoy your "saved" time.
 
-![A conceptual image of a digital loop or a futuristic command center](https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![A conceptual image of a digital loop or a futuristic command center](/images/the-productivity-paradox-gitbutler_pexels-photo-3183150.jpeg)

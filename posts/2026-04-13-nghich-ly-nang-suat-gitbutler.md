@@ -30,4 +30,4 @@ GitButler là một công cụ tuyệt vời, nhưng nó cũng là một tấm g
 
 Chào mừng bạn đến với vòng lặp vô tận. Hãy tận hưởng khoảng thời gian "tiết kiệm" của bạn nhé.
 
-![Hình ảnh khái niệm về một vòng lặp kỹ thuật số hoặc trung tâm điều khiển tương lai](https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Hình ảnh khái niệm về một vòng lặp kỹ thuật số hoặc trung tâm điều khiển tương lai](/images/nghich-ly-nang-suat-gitbutler_pexels-photo-3183150.jpeg)

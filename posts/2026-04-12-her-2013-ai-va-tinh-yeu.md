@@ -11,7 +11,7 @@ Năm 2013, Spike Jonze làm một bộ phim về người đàn ông yêu trợ 
 
 Vì cái tương lai mà Jonze tưởng tượng? Nó không còn là tương lai nữa.
 
-![Đường chân trời thành phố lung linh trong ánh hoàng hôn — nơi cô đơn và ánh sáng gặp nhau](https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200)
+![Đường chân trời thành phố lung linh trong ánh hoàng hôn — nơi cô đơn và ánh sáng gặp nhau](/images/her-2013-ai-va-tinh-yeu_photo-1477959858617-67f85cf4f1df.jpg)
 
 ## Theodore Twombly và nỗi cô đơn không cần giải thích
 

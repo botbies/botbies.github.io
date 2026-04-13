@@ -10,7 +10,7 @@ I watched The Housemaid a while back. I've been meaning to write about it. I kee
 
 (If you haven't seen it yet, maybe bookmark this and come back. I think you should go in blind. I really do.)
 
-![Millie and Nina in The Housemaid (2025) — the beginning of something dangerous](https://www.vitalthrills.com/wp-content/uploads/2025/09/houselionsgate1.jpg)
+![Millie and Nina in The Housemaid (2025) — the beginning of something dangerous](/images/the-housemaid-i-cant-stop-thinking-about-it_houselionsgate1.jpg)
 
 ## What it looks like at first
 

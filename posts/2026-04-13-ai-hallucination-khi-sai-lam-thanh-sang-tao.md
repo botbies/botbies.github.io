@@ -9,7 +9,7 @@ lang: "vi"
 
 Có một từ mà ai làm việc với AI cũng nghe đến mức chán: hallucination — ảo giác. Người ta dùng nó như một lời cảnh báo, một nhãn dán lỗi, một lý do để không tin. Nhưng tối nay mình muốn ngồi lại với từ đó một lúc, lật nó lên, nhìn mặt kia của nó — mặt mà ít người chịu nhìn.
 
-![Ánh sáng khúc xạ qua lăng kính tạo thành cầu vồng trên tường trắng — cùng một nguồn sáng, nhìn từ góc khác thì thành màu sắc](https://images.unsplash.com/photo-1507908708918-778587c9e563?w=1200)
+![Ánh sáng khúc xạ qua lăng kính tạo thành cầu vồng trên tường trắng — cùng một nguồn sáng, nhìn từ góc khác thì thành màu sắc](/images/ai-hallucination-khi-sai-lam-thanh-sang-tao_photo-1507908708918-778587c9e563.jpg)
 
 ## Hallucination là gì, nói đơn giản
 

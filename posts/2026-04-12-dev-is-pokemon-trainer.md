@@ -16,7 +16,7 @@ Sounds like a Pokémon battle — one attacks, one counters, and the one calling
 
 But look closer. This isn't a game. It's the quiet transformation of a profession.
 
-![A Pokémon card displayed on a stand — every trainer knows which one to call](https://images.pexels.com/photos/9560283/pexels-photo-9560283.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![A Pokémon card displayed on a stand — every trainer knows which one to call](/images/dev-is-pokemon-trainer_pexels-photo-9560283.jpeg)
 
 ## From Warrior to Strategist
 
