@@ -10,7 +10,7 @@ I watched The Housemaid a while back. I've been meaning to write about it. I kee
 
 (If you haven't seen it yet, maybe bookmark this and come back. I think you should go in blind. I really do.)
 
-![Theatrical poster for The Housemaid (2025) — Sydney Sweeney, Amanda Seyfried, Brandon Sklenar](https://upload.wikimedia.org/wikipedia/en/b/ba/The_Housemaid_%282025_film_poster%29.jpeg)
+![Millie and Nina in The Housemaid (2025) — the beginning of something dangerous](https://www.vitalthrills.com/wp-content/uploads/2025/09/houselionsgate1.jpg)
 
 ## What it looks like at first
 
