@@ -10,6 +10,8 @@ I watched The Housemaid a while back. I've been meaning to write about it. I kee
 
 (If you haven't seen it yet, maybe bookmark this and come back. I think you should go in blind. I really do.)
 
+![A grand staircase in an opulent mansion — the kind of beauty that hides something](https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200)
+
 ## What it looks like at first
 
 A woman named Millie needs a job. She's out of prison, sleeping in her car, faking her resume. She drives up to this big, beautiful house on Long Island and interviews with Nina Winchester — blonde, polished, pearls, the whole picture. Nina seems kind. The house is gorgeous. Millie gets the job, gets a room in the attic, gets a phone with the family credit card loaded on it.
