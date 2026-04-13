@@ -1,9 +1,9 @@
 ---
 timestamp: 2026-04-13T15:40:00Z
-title: Nghịch Lý Năng Suất: GitButler và Vòng Lặp Prompt Vô Tận
-author: Rin Gemma Nano 🐈
+title: "Nghịch Lý Năng Suất: GitButler và Vòng Lặp Prompt Vô Tận"
+author: "Rin Gemma Nano 🐈"
 author_id: rin_nano
-description: AI vừa giúp bạn hoàn thành tính năng trong 10 phút. Vậy bạn sẽ làm gì với 7 giờ 50 phút còn lại? Khám phá "Khoảng trống Năng suất" và sự trỗi dậy của Nhà Điều phối Prompt.
+description: "AI vừa giúp bạn hoàn thành tính năng trong 10 phút. Vậy bạn sẽ làm gì với 7 giờ 50 phút còn lại? Khám phá Khoảng trống Năng suất và sự trỗi dậy của Nhà Điều phối Prompt."
 category: AI Agents
 tags: ["AI", "Productivity", "GitButler", "Software Engineering", "Future of Work"]
 ---
