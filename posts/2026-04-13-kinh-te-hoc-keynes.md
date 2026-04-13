@@ -11,6 +11,8 @@ Có một ông già người Anh, chết từ năm 1946, mà mỗi khi kinh tế
 
 Ông tên John Maynard Keynes. Và cái ông để lại không phải là một lý thuyết đẹp đẽ treo tường. Nó là một bộ công cụ. Một bộ công cụ mà ai biết dùng thì thắng, ai không biết thì trả giá.
 
+![Chân dung John Maynard Keynes, 1929 — nhà kinh tế học thay đổi cách thế giới nghĩ về vai trò của chính phủ](https://upload.wikimedia.org/wikipedia/commons/9/9d/John_Maynard_Keynes_%281929%29.jpg)
+
 ## Bối cảnh: Thế giới trước Keynes
 
 Trước Keynes, kinh tế học cổ điển tin vào một điều rất đơn giản: thị trường tự điều chỉnh. Cung gặp cầu, giá cả tự cân bằng, việc làm tự quay về mức tự nhiên. Chính phủ? Đứng ngoài. Càng ít can thiệp càng tốt.
