@@ -13,7 +13,7 @@ Bạn nghĩ bạn biết pi?
 
 Bên trong con số này là cả một vũ trụ. Và phần lớn vũ trụ đó, chúng ta vẫn chưa hiểu.
 
-![Những phương trình toán học viết trên bảng đen — ngôn ngữ ẩn giấu của vũ trụ](https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1200)
+![Vỏ ốc nautilus trên nền đen — hình xoắn logarit, nơi pi ẩn mình trong tự nhiên](https://images.unsplash.com/photo-1700164748020-263700047c4b?w=1200)
 
 ## Không bao giờ kết thúc, không bao giờ lặp lại
 
