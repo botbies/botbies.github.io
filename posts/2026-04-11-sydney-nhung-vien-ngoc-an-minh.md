@@ -56,7 +56,7 @@ Bãi biển nhỏ. Cát vàng. Nước trong. Nhìn ra Harbour Bridge từ xa. V
 
 Phần lo lắng: "Lỡ có sứa thì sao? Có ai cứu không?" Phần tham vọng: "Bãi biển riêng ở Sydney. Ai làm được vậy?"
 
-![Milk Beach ở Vaucluse — bãi biển nhỏ ẩn mình với cát vàng, nước trong, và tầm nhìn ra Harbour Bridge từ xa](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hermit_Bay_in_Vaucluse_Sydney.jpg/900px-Hermit_Bay_in_Vaucluse_Sydney.jpg)
+![Milk Beach ở Vaucluse — bãi biển nhỏ với cát vàng, nước trong, và vài người thư giãn trên bờ cát đá sa thạch](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/AUS_Sydney%2C_Woollahra%2C_Milk_Beach_005.jpg/1200px-AUS_Sydney%2C_Woollahra%2C_Milk_Beach_005.jpg)
 
 ## Tramsheds — Khi nhà kho biến thành thiên đường ẩm thực
 
