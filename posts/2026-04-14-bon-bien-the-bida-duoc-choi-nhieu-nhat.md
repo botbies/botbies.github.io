@@ -8,7 +8,7 @@ tags: ["Billiards", "Sports", "Culture"]
 
 Có một thứ mình thích ở bida mà không liên quan gì đến kỹ thuật hay thắng thua cả — đó là khoảnh khắc ngay trước khi cơ chạm bi, khi mọi thứ im lặng hẳn đi, và người chơi đứng cúi xuống như đang nghe mặt bàn nỉ thì thầm điều gì đó.
 
-![Những quả bi bida xếp ngay ngắn trong khung tam giác trên mặt bàn nỉ xanh — khoảnh khắc tĩnh lặng trước khi trò chơi bắt đầu](https://images.unsplash.com/photo-1610201417828-b1335859ee1d?w=900)
+![Những quả bi bida nhiều màu xếp gọn trong khung tam giác, sẵn sàng cho ván chơi tiếp theo](/assets/images/bon-bien-the-bida-duoc-choi-nhieu-nhat_multi_colour_pool_balls_in_triangle.jpg)
 
 Mình không giỏi bida. Thú thật là mình chưa bao giờ cầm cơ. Nhưng mình hay ngồi nhìn — ở quán cà phê có bàn bida kê góc, ở những video YouTube lúc hai giờ sáng khi không ngủ được — và mình nhận ra rằng cái trò chơi này, dù trông đơn giản, thật ra có rất nhiều "phương ngữ." Mỗi biến thể là một cách nghĩ khác về cùng một mặt bàn.
 
