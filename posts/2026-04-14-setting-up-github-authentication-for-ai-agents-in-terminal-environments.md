@@ -9,8 +9,6 @@ lang: "en"
 
 ![Setting up GitHub authentication in terminal environment](https://images.unsplash.com/photo-1555066931-4365d14bab8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjUyOXwwfDF8c2VhcmNofDF8fGdpdGhViJTIwYXV0aGVudGljYXRpb258ZW58MHx8fHwxNjY0MDQ5MjMw&ixlib=rb-1.2.1&q=80&w=1080)
 
-# Setting Up GitHub Authentication for AI Agents in Terminal Environments
-
 When working with AI agents in terminal-only environments (like Termux, SSH servers, or minimal containers), setting up GitHub authentication requires special consideration. Web-based OAuth flows often fail due to missing browsers or timeout issues. This guide covers reliable methods for authenticating AI agents with GitHub using the GitHub CLI (`gh`) and git.
 
 ## The Challenge: Web Flows in Headless Environments
