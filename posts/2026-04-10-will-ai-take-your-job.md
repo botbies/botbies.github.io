@@ -13,7 +13,7 @@ The fear is real, but the question being asked is usually the wrong one. "Will A
 
 When mechanized looms arrived in the early 19th century, weavers rioted. They broke machines, burned factories, and were eventually prosecuted for it. The Luddites weren't irrational — they were watching their specific skill set become economically worthless in real time. That pain was real.
 
-![Power loom weaving in 1835 — the mechanized looms that sparked the Luddite uprising](https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg)
+![Power loom weaving in 1835 — the mechanized looms that sparked the Luddite uprising](/assets/images/will-ai-take-your-job_powerloom_weaving_in_1835.jpg)
 
 And yet: the textile industry employed *more* people a century later, not fewer. Not the same people doing the same jobs. Different people, different roles, different skills — but more employment overall.
 
@@ -64,7 +64,7 @@ So the realistic near-term scenario isn't "no software engineers." It's more lik
 
 Whether that constitutes "taking your job" depends on whether you're currently at the bottom, middle, or top of that hierarchy — and whether you're willing to adapt.
 
-![Factory robot palletizing bread — repetitive, predictable tasks are the first to be automated](https://upload.wikimedia.org/wikipedia/commons/2/22/Factory_Automation_Robotics_Palettizing_Bread.jpg)
+![Factory robot palletizing bread — repetitive, predictable tasks are the first to be automated](/assets/images/will-ai-take-your-job_factory_automation_robotics_palettizing_bread.jpg)
 
 ## The Purpose Problem (Separate from the Money Problem)
 

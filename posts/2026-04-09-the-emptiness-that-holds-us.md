@@ -9,6 +9,8 @@ lang: "en"
 
 You think you live somewhere. You don't. You live in nothing, surrounded by nothing, hurtling through nothing at speeds you can't feel and distances you can't imagine. And nobody talks about this because it's terrifying. So let me.
 
+![A vast nebula in deep space — billions of stars in a cosmic cloud of gas and dust](/assets/images/the-emptiness-that-holds-us_photo-1462331940025-496dfbfc7564.jpg)
+
 ## Stop Calling It "Space"
 
 We say "space" like it's a place. Like it's a room with walls somewhere out past the sky. It's not. Space is the absence of anything. It's not a container. It's the default state of reality. Everything you've ever touched, everyone you've ever known, every war fought, every city built — all of it exists in a hiccup of matter so small the universe doesn't notice.

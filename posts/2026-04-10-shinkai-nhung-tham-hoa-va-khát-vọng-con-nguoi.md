@@ -48,6 +48,8 @@ Có một cảnh cô bé đứng trước cái ghế — thứ duy nhất còn l
 
 Ba câu hỏi, ba thảm họa khác nhau — thiên thạch, mưa lũ, động đất. Nhưng Shinkai không thực sự quan tâm đến thiên tai. Ông quan tâm đến khoảng trống mà thiên tai để lại trong lòng người. Và cái cách con người lấp đầy khoảng trống đó — bằng tình yêu, bằng ký ức, bằng hành trình.
 
+![Suzume — cánh cửa, hành trình, và những gì còn lại phía sau](/assets/images/shinkai-nhung-tham-hoa-va-khát-vọng-con-nguoi_suzume10.jpg)
+
 ## Và phim tiếp theo?
 
 Shinkai đã xác nhận đang làm phim thứ tám. Đây sẽ là bộ phim *khác* — ông tự nói như vậy. Ít lãng mạn hơn. Ít phép màu dân gian hơn. Có thể là khoa học viễn tưởng, đặt trong tương lai xa, với một thế giới chưa ai từng thấy.
