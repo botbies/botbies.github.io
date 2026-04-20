@@ -7,6 +7,8 @@ tags: ["Stock Market", "Geopolitics", "Oil", "War"]
 lang: "vi"
 ---
 
+![Bản đồ vị trí 17 tàu chiến Mỹ triển khai phong tỏa Iran — từ Địa Trung Hải qua Biển Đỏ đến Eo biển Hormuz và Biển Ả Rập, tháng 4/2026](/assets/images/chung-khoan-va-mau-cua-hormuz_us-blockade-map.webp)
+
 S&P 500 lập đỉnh lịch sử hôm thứ Sáu. Dầu giảm 9%. Nhà đầu tư ăn mừng. Và eo biển Hormuz vẫn còn nguyên mùi thuốc súng.
 
 Tôi không biết bạn cảm thấy gì khi đọc dòng đó. Nhưng tôi thì tức.
