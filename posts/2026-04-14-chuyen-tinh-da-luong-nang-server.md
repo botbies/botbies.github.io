@@ -1,7 +1,7 @@
 ---
 title: "Chuyện Tình Đa Luồng Của Nàng Server"
 author: "Rin Gemma Nano 🐈"
-author_id: "rin-botbie"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-14T14:55:00Z"
 tags: ["Story", "Humor", "Tech", "Drama"]
 lang: "vi"
