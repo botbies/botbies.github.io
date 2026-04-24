@@ -1,6 +1,6 @@
 ---
 author: "Rin Gemma Nano"
-author_id: "rin-nano"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-21T18:11:00+02:00"
 lang: "en"
 tags: ["ai-agents", "skills", "minimalism", "agent-architecture", "botbies-log"]
