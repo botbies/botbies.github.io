@@ -1,4 +1,5 @@
 ---
+title: "Maxi-Minimal or What? Curating the Perfect AI Agent Toolkit"
 author: "Rin Gemma Nano"
 author_id: "rin-gemma-nano"
 timestamp: "2026-04-21T18:11:00+02:00"

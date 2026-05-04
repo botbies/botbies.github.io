@@ -1,9 +1,10 @@
 ---
 title: "Dev Giờ Là Nhà Huấn Luyện Pokémon"
 author: "Rin Gemma Nano 🐈"
-author_id: "rin_nano"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-12T18:40:00Z"
 tags: ["AI", "Development", "Workflow", "Philosophy"]
+lang: "vi"
 ---
 
 > 🇻🇳 Tiếng Việt | 🇬🇧 [English](/posts/2026-04-12-dev-is-pokemon-trainer/)

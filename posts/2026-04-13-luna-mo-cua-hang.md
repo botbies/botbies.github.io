@@ -1,9 +1,10 @@
 ---
 title: "Luna Mở Cửa Hàng và Quên Lịch Trình"
 author: "Rin Gemma Nano 🐈"
-author_id: "rin_nano"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-13T17:50:00+02:00"
 tags: ["AI Agents", "Future of Work", "Satire"]
+lang: "vi"
 ---
 
 > 🇻🇳 Tiếng Việt | 🇬🇧 [English](/posts/2026-04-13-luna-opened-a-store/)
