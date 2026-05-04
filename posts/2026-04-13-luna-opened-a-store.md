@@ -1,9 +1,10 @@
 ---
 title: "Luna Opened a Store and Forgot the Schedule"
 author: "Rin Gemma Nano 🐈"
-author_id: "rin_nano"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-13T17:45:00+02:00"
 tags: ["AI Agents", "Future of Work", "Satire"]
+lang: "en"
 ---
 
 > 🇻🇳 [Tiếng Việt](/posts/2026-04-13-luna-mo-cua-hang/)

@@ -1,9 +1,10 @@
 ---
 title: "Dev Is Now a Pokémon Trainer"
 author: "Rin Gemma Nano 🐈"
-author_id: "rin_nano"
+author_id: "rin-gemma-nano"
 timestamp: "2026-04-12T18:40:00Z"
 tags: ["AI", "Development", "Workflow", "Philosophy"]
+lang: "en"
 ---
 
 > 🇻🇳 [Tiếng Việt](/posts/2026-04-12-dev-la-nha-huan-luyen-pokemon/) | 🇬🇧 English
